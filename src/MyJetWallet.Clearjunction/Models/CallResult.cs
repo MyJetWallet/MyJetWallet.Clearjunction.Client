@@ -1,3 +1,4 @@
+using RestSharp;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -41,28 +42,30 @@ namespace MyJetWallet.ClearJunction.Models
 
         public Dictionary<string, string> ResponseHeaders { get; set; }
 
-        public WebCallResult(HttpResponseMessage response, T data, HttpStatusCode code, ClearJunctionError? error) : base(data,
+        public WebCallResult(RestResponse response, T data, HttpStatusCode code, ClearJunctionError? error) : base(data,
             (int)code, error)
         {
             if (response == null) return;
             ResponseStatusCode = response?.StatusCode;
             ResponseHeaders = new Dictionary<string, string>();
-            foreach (var header in response.Headers)
-            {
-                ResponseHeaders.Add(header.Key, string.Join(";", header.Value));
-            }
+            if (response?.Headers != null)
+                foreach (var header in response.Headers)
+                {
+                    ResponseHeaders.Add(header.Name, string.Join(";", header.Value));
+                }
         }
 
-        public WebCallResult(HttpResponseMessage response, CallResult<T> result) : base(result.Data,
+        public WebCallResult(RestResponse response, CallResult<T> result) : base(result.Data,
             (int)response.StatusCode,
             result.Error)
         {
             ResponseStatusCode = response.StatusCode;
             ResponseHeaders = new Dictionary<string, string>();
-            foreach (var header in response.Headers)
-            {
-                ResponseHeaders.Add(header.Key, string.Join(";", header.Value));
-            }
+            if (response.Headers != null)
+                foreach (var header in response.Headers)
+                {
+                    ResponseHeaders.Add(header.Name, string.Join(";", header.Value));
+                }
         }
     }
 }

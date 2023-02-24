@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MyJetWallet.ClearJunction.Models;
 using Newtonsoft.Json;
+using RestSharp;
 
 namespace MyJetWallet.ClearJunction
 {
@@ -34,9 +35,9 @@ namespace MyJetWallet.ClearJunction
 
         public bool ThrowThenErrorResponse { get; set; } = true;
 
-        private HttpClient _httpClient;
+        private RestClient _httpClient;
         private DateTime _lastHttpSetupTime;
-        private HttpClient _lastHttpClient;
+        private RestClient _lastHttpClient;
         private readonly object _gate = new object();
 
         #endregion
@@ -50,8 +51,6 @@ namespace MyJetWallet.ClearJunction
 
             if (apiRootUrl.Last() != '/')
                 apiRootUrl += '/';
-
-            apiRootUrl += "v1";
 
             this.EndpointUrl = apiRootUrl;
             this.SetAccessToken(apiKey, apiPassword);
@@ -78,7 +77,7 @@ namespace MyJetWallet.ClearJunction
 
         #region Private Methods
 
-        private HttpClient GetHttpClient()
+        private RestClient GetHttpClient()
         {
             lock (_gate)
             {
@@ -93,16 +92,10 @@ namespace MyJetWallet.ClearJunction
 
         private void SetupHttpClient()
         {
-            var handler = new HttpClientHandler()
-            {
-                AllowAutoRedirect = false
-            };
+            var client = new RestClient(this.EndpointUrl);
 
-            var client = new HttpClient(handler);
-
-            client.BaseAddress = new Uri(this.EndpointUrl);
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("X-API-KEY", this.ApiKey.SecureStringToString());
+            client.AddDefaultHeader("Content-Type", "application/json");
+            client.AddDefaultHeader("X-API-KEY", this.ApiKey.SecureStringToString());
 
             _lastHttpClient?.Dispose();
             _lastHttpClient = _httpClient;
@@ -126,106 +119,82 @@ namespace MyJetWallet.ClearJunction
         {
             var client = this.GetHttpClient();
 
-            using var request = new System.Net.Http.HttpRequestMessage();
+            var request = new RestRequest(new System.Uri(url, System.UriKind.RelativeOrAbsolute), Method.Get);
 
-            request.Method = new System.Net.Http.HttpMethod("GET");
-            request.RequestUri = new System.Uri(url, System.UriKind.RelativeOrAbsolute);
-
-            await AddAuthToHeader(request).ConfigureAwait(false);
-
-            var response = await client
-                .SendAsync(request, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken)
-                .ConfigureAwait(false);
+            AddAuthToHeader(request, string.Empty);
 
             try
             {
+                var response = await client
+                    .GetAsync(request, cancellationToken)
+                    .ConfigureAwait(false);
+
                 var status = (int)response.StatusCode;
-                var content = await response.Content.ReadAsStringAsync(cancellationToken);
+                var content = response?.Content;
                 if (status == 200)
                     return this.EvaluateResponse<T>(response, content);
                 else
                     return this.EvaluateErrorResponse<T>(response, content);
             }
-            finally
+            catch (System.Net.Http.HttpRequestException e)
             {
-                response.Dispose();
+                throw;
             }
         }
 
-        private async Task AddAuthToHeader(HttpRequestMessage request)
+        public async Task<WebCallResult<T>> PostAsync<T>(string url, object data,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var client = this.GetHttpClient();
+
+            var request = new RestRequest(new System.Uri(url, System.UriKind.RelativeOrAbsolute), Method.Post);
+            var cont = JsonConvert.SerializeObject(data);
+            request.AddStringBody(cont, DataFormat.Json);
+            AddAuthToHeader(request, cont);
+
+            try
+            {
+                var response = await client
+                    .ExecutePostAsync(request, cancellationToken)
+                    .ConfigureAwait(false);
+
+                var status = (int)response.StatusCode;
+                var content = response?.Content;
+                if (status == 200)
+                    return this.EvaluateResponse<T>(response, content);
+                else
+                    return this.EvaluateErrorResponse<T>(response, content);
+            }
+            catch (System.Net.Http.HttpRequestException e)
+            {
+                throw;
+            }
+        }
+
+        private void AddAuthToHeader(RestRequest request, string content)
         {
             var date = DateTime.UtcNow
                 .ToUniversalTime()
-                .ToString("yyyy-MM-ddTHH:mm:sssssZ")
+                .ToString("yyyy-MM-ddTHH:mm:ss+00:00")
                 .Replace(" ", "T");
-            request.Headers.("Date", date);
-
-            var content = (await request?.Content?.ReadAsStringAsync()!) ?? string.Empty;
+            request.AddHeader("Date", date);
 
             using var shaM = SHA512.Create();
-            var hash = shaM.ComputeHash(Encoding.UTF8.GetBytes(
-                this.ApiKey.SecureStringToString().ToUpperInvariant()
-                + date
-                + Encoding.UTF8.GetString(shaM.ComputeHash(Encoding.UTF8.GetBytes(ApiPassword.SecureStringToString())))
-                    .ToUpperInvariant()
-                + content.ToUpperInvariant()));
-            var signature = Encoding.UTF8.GetString(hash);
 
+            var concatenated = this.ApiKey.SecureStringToString().ToUpperInvariant()
+                               + date
+                               + ToHex(shaM.ComputeHash(Encoding.UTF8.GetBytes(ApiPassword.SecureStringToString())))
+                                   .ToUpperInvariant()
+                               + content.ToUpperInvariant();
+            
+            var hash = shaM.ComputeHash(Encoding.UTF8.GetBytes(concatenated));
 
-            request.Headers.Add("Authorization", signature);
+            var signature = ToHex(hash);
+
+            request.AddHeader("Authorization", signature);
         }
 
-        private async Task<WebCallResult<T>> PostAsync<T>(string url, object obj = null,
-            CancellationToken cancellationToken = default(CancellationToken))
-        {
-            var client = GetHttpClient();
-            var data = JsonConvert.SerializeObject(obj ?? new object());
-            var response = await client.PostAsync($"{url}", new StringContent(data, Encoding.UTF8, "application/json"),
-                cancellationToken);
-            var content = await response.Content.ReadAsStringAsync(cancellationToken);
-
-            if (PrintPostApiCalls)
-            {
-                Console.WriteLine($"POST: {url}\nBody: {data}\nResp: {content}");
-            }
-
-            // Return
-            return this.EvaluateResponse<T>(response, content);
-        }
-
-        private async Task<WebCallResult<T>> PutAsync<T>(string url, object obj = null,
-            CancellationToken cancellationToken = default(CancellationToken))
-        {
-            var client = GetHttpClient();
-            var data = JsonConvert.SerializeObject(obj ?? new object());
-            var response = await client.PutAsync($"{url}", new StringContent(data, Encoding.UTF8, "application/json"),
-                cancellationToken);
-            var content = await response.Content.ReadAsStringAsync(cancellationToken);
-
-            if (PrintPutApiCalls)
-            {
-                Console.WriteLine($"PUT: {url}\nBody: {data}\nResp: {content}");
-            }
-
-            // Return
-            return this.EvaluateResponse<T>(response, content);
-        }
-
-        private async Task<WebCallResult<T>> DeleteAsync<T>(string url, object obj = null,
-            CancellationToken cancellationToken = default(CancellationToken))
-        {
-            var client = GetHttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Delete, $"{url}");
-            var data = JsonConvert.SerializeObject(obj ?? new object());
-            request.Content = new StringContent(data, Encoding.UTF8, "application/json");
-            var response = await client.SendAsync(request, cancellationToken);
-            var content = await response.Content.ReadAsStringAsync(cancellationToken);
-
-            // Return
-            return this.EvaluateResponse<T>(response, content);
-        }
-
-        private WebCallResult<T> EvaluateResponse<T>(HttpResponseMessage response, string content)
+        private WebCallResult<T> EvaluateResponse<T>(RestResponse response, string content)
         {
             if (string.IsNullOrEmpty(content))
             {
@@ -244,7 +213,7 @@ namespace MyJetWallet.ClearJunction
             return new WebCallResult<T>(response, JsonConvert.DeserializeObject<CallResult<T>>(content));
         }
 
-        private WebCallResult<T> EvaluateErrorResponse<T>(HttpResponseMessage response, string content)
+        private WebCallResult<T> EvaluateErrorResponse<T>(RestResponse response, string content)
         {
             if (string.IsNullOrEmpty(content))
             {
@@ -269,6 +238,24 @@ namespace MyJetWallet.ClearJunction
             {
                 throw new ClearJunctionException(code, message);
             }
+        }
+
+        public static string ToHex(byte[] bytes)
+        {
+            char[] c = new char[bytes.Length * 2];
+
+            byte b;
+
+            for (int bx = 0, cx = 0; bx < bytes.Length; ++bx, ++cx)
+            {
+                b = ((byte)(bytes[bx] >> 4));
+                c[cx] = (char)(b > 9 ? b + 0x37 + 0x20 : b + 0x30);
+
+                b = ((byte)(bytes[bx] & 0x0F));
+                c[++cx] = (char)(b > 9 ? b + 0x37 + 0x20 : b + 0x30);
+            }
+
+            return new string(c);
         }
 
         #endregion
