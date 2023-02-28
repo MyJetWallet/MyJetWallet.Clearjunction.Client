@@ -6,8 +6,8 @@
         <Description>ClearJunction.Net is a .Net wrapper for the ClearJunction API. 
 	        It includes all features that the API provides.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/MyJetWallet/MyJetWallet.Circle</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/MyJetWallet/MyJetWallet.Circle</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client</RepositoryUrl>
         <PackageTags>ClearJunction ClearJunction.Net C# .Net Rest API Wrapper</PackageTags>
         <NeutralLanguage>en</NeutralLanguage>
         <Version>1.0.0</Version>
