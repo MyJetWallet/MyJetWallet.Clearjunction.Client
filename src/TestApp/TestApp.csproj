@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MyJetWallet.Clearjunction\MyJetWallet.Clearjunction.Client.csproj" />
+      <ProjectReference Include="..\MyJetWallet.Clearjunction.Client\MyJetWallet.Clearjunction.Client.csproj" />
     </ItemGroup>
 
 </Project>
