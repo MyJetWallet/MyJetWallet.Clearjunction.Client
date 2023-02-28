@@ -55,9 +55,9 @@ namespace MyJetWallet.ClearJunction.Models
                 }
         }
 
-        public WebCallResult(RestResponse response, CallResult<T> result) : base(result.Data,
+        public WebCallResult(RestResponse response, T result) : base(result,
             (int)response.StatusCode,
-            result.Error)
+            null)
         {
             ResponseStatusCode = response.StatusCode;
             ResponseHeaders = new Dictionary<string, string>();

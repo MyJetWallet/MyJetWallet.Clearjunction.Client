@@ -4,11 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection.Metadata;
 using System.Security;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using MyJetWallet.ClearJunction.Auth;
 using MyJetWallet.ClearJunction.Models;
 using Newtonsoft.Json;
 using RestSharp;
@@ -18,9 +20,6 @@ namespace MyJetWallet.ClearJunction
 
     public partial class ClearJunctionClient : IDisposable, IClearJunctionClient
     {
-        public const string MainPublicApi = "";
-        public const string TestPublicApi = "";
-
         public static bool PrintGetApiCalls { get; set; } = false;
         public static bool PrintPostApiCalls { get; set; } = false;
         public static bool PrintPutApiCalls { get; set; } = false;
@@ -29,16 +28,13 @@ namespace MyJetWallet.ClearJunction
 
         public string EndpointUrl { get; private set; }
 
-        public SecureString ApiKey { get; private set; }
-
-        public SecureString ApiPassword { get; private set; }
-
         public bool ThrowThenErrorResponse { get; set; } = true;
 
         private RestClient _httpClient;
         private DateTime _lastHttpSetupTime;
         private RestClient _lastHttpClient;
         private readonly object _gate = new object();
+        private readonly AuthChecker _authChecker;
 
         #endregion
 
@@ -46,6 +42,7 @@ namespace MyJetWallet.ClearJunction
 
         public ClearJunctionClient(string apiKey, string apiPassword, string apiRootUrl)
         {
+            _authChecker = new AuthChecker(apiKey, apiPassword);
             if (string.IsNullOrEmpty(apiRootUrl))
                 throw new ArgumentException("api url cannot be empty", nameof(apiRootUrl));
 
@@ -53,24 +50,6 @@ namespace MyJetWallet.ClearJunction
                 apiRootUrl += '/';
 
             this.EndpointUrl = apiRootUrl;
-            this.SetAccessToken(apiKey, apiPassword);
-        }
-
-        #endregion
-
-        #region Api Key
-
-        public void SetAccessToken(string apiKey, string apiPassword)
-        {
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                this.ApiKey = apiKey.StringToSecureString();
-            }
-
-            if (!string.IsNullOrEmpty(apiPassword))
-            {
-                this.ApiPassword = apiPassword.StringToSecureString();
-            }
         }
 
         #endregion
@@ -95,7 +74,7 @@ namespace MyJetWallet.ClearJunction
             var client = new RestClient(this.EndpointUrl);
 
             client.AddDefaultHeader("Content-Type", "application/json");
-            client.AddDefaultHeader("X-API-KEY", this.ApiKey.SecureStringToString());
+            client.AddDefaultHeader("X-API-KEY", this._authChecker.ApiKey.SecureStringToString());
 
             _lastHttpClient?.Dispose();
             _lastHttpClient = _httpClient;
@@ -126,7 +105,7 @@ namespace MyJetWallet.ClearJunction
             try
             {
                 var response = await client
-                    .GetAsync(request, cancellationToken)
+                    .ExecuteAsync(request, cancellationToken)
                     .ConfigureAwait(false);
 
                 var status = (int)response.StatusCode;
@@ -173,24 +152,10 @@ namespace MyJetWallet.ClearJunction
 
         private void AddAuthToHeader(RestRequest request, string content)
         {
-            var date = DateTime.UtcNow
-                .ToUniversalTime()
-                .ToString("yyyy-MM-ddTHH:mm:ss+00:00")
-                .Replace(" ", "T");
+            var date = _authChecker.GetCurrentDate();
+            var signature = _authChecker.GetSignature(date, content);
+
             request.AddHeader("Date", date);
-
-            using var shaM = SHA512.Create();
-
-            var concatenated = this.ApiKey.SecureStringToString().ToUpperInvariant()
-                               + date
-                               + ToHex(shaM.ComputeHash(Encoding.UTF8.GetBytes(ApiPassword.SecureStringToString())))
-                                   .ToUpperInvariant()
-                               + content.ToUpperInvariant();
-            
-            var hash = shaM.ComputeHash(Encoding.UTF8.GetBytes(concatenated));
-
-            var signature = ToHex(hash);
-
             request.AddHeader("Authorization", signature);
         }
 
@@ -210,7 +175,7 @@ namespace MyJetWallet.ClearJunction
                 });
             }
 
-            return new WebCallResult<T>(response, JsonConvert.DeserializeObject<CallResult<T>>(content));
+            return new WebCallResult<T>(response, JsonConvert.DeserializeObject<T>(content));
         }
 
         private WebCallResult<T> EvaluateErrorResponse<T>(RestResponse response, string content)
@@ -240,23 +205,7 @@ namespace MyJetWallet.ClearJunction
             }
         }
 
-        public static string ToHex(byte[] bytes)
-        {
-            char[] c = new char[bytes.Length * 2];
-
-            byte b;
-
-            for (int bx = 0, cx = 0; bx < bytes.Length; ++bx, ++cx)
-            {
-                b = ((byte)(bytes[bx] >> 4));
-                c[cx] = (char)(b > 9 ? b + 0x37 + 0x20 : b + 0x30);
-
-                b = ((byte)(bytes[bx] & 0x0F));
-                c[++cx] = (char)(b > 9 ? b + 0x37 + 0x20 : b + 0x30);
-            }
-
-            return new string(c);
-        }
+        
 
         #endregion
 
@@ -264,8 +213,7 @@ namespace MyJetWallet.ClearJunction
         {
             _httpClient?.Dispose();
             _lastHttpClient?.Dispose();
-            ApiKey?.Dispose();
-            ApiPassword?.Dispose();
+            _authChecker?.Dispose();
         }
     }
 }
