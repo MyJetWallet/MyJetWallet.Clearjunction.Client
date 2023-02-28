@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
 namespace MyJetWallet.ClearJunction.Models.RequisitesAllocation;
 
+[DataContract]
 public class CustomerIbanList
 {
-    [JsonProperty("requestReference")]
+    [DataMember(Order = 1),JsonProperty("requestReference")]
     public string RequestReference { get; set; }
 
-    [JsonProperty("clientCustomerId")]
+    [DataMember(Order = 2), JsonProperty("clientCustomerId")]
     public string ClientCustomerId { get; set; }
 
-    [JsonProperty("ibans")]
+    [DataMember(Order = 3), JsonProperty("ibans")]
     public List<string> Ibans { get; set; }
 }
