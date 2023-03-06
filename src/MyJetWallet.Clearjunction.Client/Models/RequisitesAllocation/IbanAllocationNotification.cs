@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using MyJetWallet.ClearJunction.Converters;
 using Newtonsoft.Json;
 
 namespace MyJetWallet.ClearJunction.Models.RequisitesAllocation;
@@ -13,7 +14,8 @@ public class IbanAllocationNotification
     public string OrderReference { get; set; }
 
     [DataMember(Order = 3), JsonProperty("status")]
-    public string Status { get; set; }
+    [JsonConverter(typeof (AllocationStatusConverter))]
+    public AllocationStatus Status { get; set; }
 
     [DataMember(Order = 4), JsonProperty("iban")]
     public string Iban { get; set; }
