@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using MyJetWallet.ClearJunction.Converters;
 
 namespace MyJetWallet.ClearJunction.Models.RequisitesAllocation
 {
@@ -18,7 +19,8 @@ namespace MyJetWallet.ClearJunction.Models.RequisitesAllocation
         public string OrderReference { get; set; }
 
         [DataMember(Order = 3), JsonProperty("status")]
-        public string Status { get; set; }
+        [JsonConverter(typeof (AllocationStatusConverter))]
+        public AllocationStatus Status { get; set; }
 
         [DataMember(Order = 4), JsonProperty("messages")]
         public List<Message> Messages { get; set; }
