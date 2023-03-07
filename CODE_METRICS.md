@@ -13,8 +13,8 @@ The *MyJetWallet.Clearjunction.Client.csproj* project file contains:
 
 - 8 namespaces.
 - 50 named types.
-- 1,323 total lines of source code.
-- Approximately 867 lines of executable code.
+- 1,325 total lines of source code.
+- Approximately 871 lines of executable code.
 - The highest cyclomatic complexity is 6 :heavy_check_mark:.
 
 <details>
@@ -806,8 +806,8 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 13 named types.
 The `MyJetWallet.ClearJunction.Models.RequisitesAllocation` namespace contains 21 named types.
 
 - 21 named types.
-- 401 total lines of source code.
-- Approximately 408 lines of executable code.
+- 403 total lines of source code.
+- Approximately 412 lines of executable code.
 - The highest cyclomatic complexity is 2 :heavy_check_mark:.
 
 <details>
@@ -1062,18 +1062,18 @@ The `MyJetWallet.ClearJunction.Models.RequisitesAllocation` namespace contains 2
 <br>
 
 - The `IbanAllocation` contains 6 members.
-- 21 total lines of source code.
-- Approximately 24 lines of executable code.
+- 22 total lines of source code.
+- Approximately 26 lines of executable code.
 - The highest cyclomatic complexity is 2 :heavy_check_mark:.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocation.cs#L15' title='string IbanAllocation.ClientOrder'>15</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocation.cs#L27' title='string IbanAllocation.Iban'>27</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocation.cs#L24' title='List<Message> IbanAllocation.Messages'>24</a> | 100 | 2 :heavy_check_mark: | 0 | 5 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocation.cs#L18' title='string IbanAllocation.OrderReference'>18</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocation.cs#L30' title='string IbanAllocation.RequestReference'>30</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocation.cs#L21' title='string IbanAllocation.Status'>21</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocation.cs#L16' title='string IbanAllocation.ClientOrder'>16</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocation.cs#L29' title='string IbanAllocation.Iban'>29</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocation.cs#L26' title='List<Message> IbanAllocation.Messages'>26</a> | 100 | 2 :heavy_check_mark: | 0 | 5 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocation.cs#L19' title='string IbanAllocation.OrderReference'>19</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocation.cs#L32' title='string IbanAllocation.RequestReference'>32</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocation.cs#L23' title='AllocationStatus IbanAllocation.Status'>23</a> | 100 | 2 :heavy_check_mark: | 0 | 6 | 3 / 6 |
 
 <a href="#IbanAllocation-class-diagram">:link: to `IbanAllocation` class diagram</a>
 
@@ -1090,18 +1090,18 @@ The `MyJetWallet.ClearJunction.Models.RequisitesAllocation` namespace contains 2
 <br>
 
 - The `IbanAllocationNotification` contains 6 members.
-- 21 total lines of source code.
-- Approximately 24 lines of executable code.
+- 22 total lines of source code.
+- Approximately 26 lines of executable code.
 - The highest cyclomatic complexity is 2 :heavy_check_mark:.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocationNotification.cs#L10' title='string IbanAllocationNotification.ClientOrder'>10</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocationNotification.cs#L19' title='string IbanAllocationNotification.Iban'>19</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocationNotification.cs#L22' title='string IbanAllocationNotification.MessageUuid'>22</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocationNotification.cs#L13' title='string IbanAllocationNotification.OrderReference'>13</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocationNotification.cs#L16' title='string IbanAllocationNotification.Status'>16</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocationNotification.cs#L25' title='string IbanAllocationNotification.Type'>25</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocationNotification.cs#L11' title='string IbanAllocationNotification.ClientOrder'>11</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocationNotification.cs#L21' title='string IbanAllocationNotification.Iban'>21</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocationNotification.cs#L24' title='string IbanAllocationNotification.MessageUuid'>24</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocationNotification.cs#L14' title='string IbanAllocationNotification.OrderReference'>14</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocationNotification.cs#L18' title='AllocationStatus IbanAllocationNotification.Status'>18</a> | 100 | 2 :heavy_check_mark: | 0 | 6 | 3 / 6 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/RequisitesAllocation/IbanAllocationNotification.cs#L27' title='string IbanAllocationNotification.Type'>27</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 
 <a href="#IbanAllocationNotification-class-diagram">:link: to `IbanAllocationNotification` class diagram</a>
 
@@ -2147,7 +2147,7 @@ classDiagram
 class IbanAllocation{
     +string ClientOrder
     +string OrderReference
-    +string Status
+    +AllocationStatus Status
     +List<Message> Messages
     +string Iban
     +string RequestReference
@@ -2164,7 +2164,7 @@ classDiagram
 class IbanAllocationNotification{
     +string ClientOrder
     +string OrderReference
-    +string Status
+    +AllocationStatus Status
     +string Iban
     +string MessageUuid
     +string Type
