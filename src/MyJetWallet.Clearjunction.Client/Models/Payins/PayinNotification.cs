@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+using MyJetWallet.ClearJunction.Converters;
 
 namespace MyJetWallet.ClearJunction.Models.Payins
 {
@@ -121,7 +119,8 @@ namespace MyJetWallet.ClearJunction.Models.Payins
         public object ValuedAt { get; set; }
 
         [DataMember(Order = 15), JsonProperty("status")]
-        public string Status { get; set; }
+        [JsonConverter(typeof (PayinNotificationStatusConverter))]
+        public PayinNotificationStatus Status { get; set; }
 
         [DataMember(Order = 16), JsonProperty("transactionType")]
         public string TransactionType { get; set; }
