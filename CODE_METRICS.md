@@ -12,9 +12,9 @@ This file is dynamically maintained by a bot, *please do not* edit this by hand.
 The *MyJetWallet.Clearjunction.Client.csproj* project file contains:
 
 - 8 namespaces.
-- 50 named types.
-- 1,325 total lines of source code.
-- Approximately 871 lines of executable code.
+- 52 named types.
+- 1,367 total lines of source code.
+- Approximately 877 lines of executable code.
 - The highest cyclomatic complexity is 6 :heavy_check_mark:.
 
 <details>
@@ -258,11 +258,11 @@ The `MyJetWallet.ClearJunction` namespace contains 4 named types.
 </summary>
 <br>
 
-The `MyJetWallet.ClearJunction.Converters` namespace contains 2 named types.
+The `MyJetWallet.ClearJunction.Converters` namespace contains 3 named types.
 
-- 2 named types.
-- 31 total lines of source code.
-- Approximately 3 lines of executable code.
+- 3 named types.
+- 58 total lines of source code.
+- Approximately 5 lines of executable code.
 - The highest cyclomatic complexity is 2 :heavy_check_mark:.
 
 <details>
@@ -308,6 +308,31 @@ The `MyJetWallet.ClearJunction.Converters` namespace contains 2 named types.
 | Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Converters/CustomDateTimeConverter.cs#L7' title='CustomDateTimeConverter.CustomDateTimeConverter()'>7</a> | 100 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
 
 <a href="#CustomDateTimeConverter-class-diagram">:link: to `CustomDateTimeConverter` class diagram</a>
+
+<a href="#myjetwallet-clearjunction-converters">:top: back to MyJetWallet.ClearJunction.Converters</a>
+
+</details>
+
+<details>
+<summary>
+  <strong id="payinnotificationstatusconverter">
+    PayinNotificationStatusConverter :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `PayinNotificationStatusConverter` contains 3 members.
+- 25 total lines of source code.
+- Approximately 2 lines of executable code.
+- The highest cyclomatic complexity is 2 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Converters/PayinNotificationStatusConverter.cs#L9' title='PayinNotificationStatusConverter.PayinNotificationStatusConverter()'>9</a> | 100 | 1 :heavy_check_mark: | 0 | 0 | 3 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Converters/PayinNotificationStatusConverter.cs#L13' title='PayinNotificationStatusConverter.PayinNotificationStatusConverter(bool quotes)'>13</a> | 100 | 1 :heavy_check_mark: | 0 | 2 | 3 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Converters/PayinNotificationStatusConverter.cs#L17' title='List<KeyValuePair<PayinNotificationStatus, string>> PayinNotificationStatusConverter.Mapping'>17</a> | 85 | 2 :heavy_check_mark: | 0 | 4 | 14 / 2 |
+
+<a href="#PayinNotificationStatusConverter-class-diagram">:link: to `PayinNotificationStatusConverter` class diagram</a>
 
 <a href="#myjetwallet-clearjunction-converters">:top: back to MyJetWallet.ClearJunction.Converters</a>
 
@@ -441,11 +466,11 @@ The `MyJetWallet.ClearJunction.Models` namespace contains 4 named types.
 </summary>
 <br>
 
-The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 13 named types.
+The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 14 named types.
 
-- 13 named types.
-- 237 total lines of source code.
-- Approximately 236 lines of executable code.
+- 14 named types.
+- 252 total lines of source code.
+- Approximately 240 lines of executable code.
 - The highest cyclomatic complexity is 2 :heavy_check_mark:.
 
 <details>
@@ -463,8 +488,8 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 13 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L15' title='string Address.AddressOneString'>15</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L18' title='string Address.Country'>18</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L13' title='string Address.AddressOneString'>13</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L16' title='string Address.Country'>16</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 
 <a href="#Address-class-diagram">:link: to `Address` class diagram</a>
 
@@ -487,7 +512,7 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 13 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L25' title='string CustomFormat.ClientCustomAttributeExample'>25</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L23' title='string CustomFormat.ClientCustomAttributeExample'>23</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 
 <a href="#CustomFormat-class-diagram">:link: to `CustomFormat` class diagram</a>
 
@@ -510,8 +535,8 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 13 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L35' title='MyExampleObject1 CustomInfo.MyExampleObject1'>35</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L32' title='string CustomInfo.MyExampleParam1'>32</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L33' title='MyExampleObject1 CustomInfo.MyExampleObject1'>33</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L30' title='string CustomInfo.MyExampleParam1'>30</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 
 <a href="#CustomInfo-class-diagram">:link: to `CustomInfo` class diagram</a>
 
@@ -560,9 +585,9 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 13 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L42' title='string Message.Code'>42</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L48' title='string Message.Details'>48</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L45' title='string Message.MessageItem'>45</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L40' title='string Message.Code'>40</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L46' title='string Message.Details'>46</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L43' title='string Message.MessageItem'>43</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 
 <a href="#Message-class-diagram">:link: to `Message` class diagram</a>
 
@@ -585,8 +610,8 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 13 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L55' title='string MyExampleObject1.MyExampleParam2'>55</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L58' title='string MyExampleObject1.MyExampleParam3'>58</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L53' title='string MyExampleObject1.MyExampleParam2'>53</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L56' title='string MyExampleObject1.MyExampleParam3'>56</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 
 <a href="#MyExampleObject1-class-diagram">:link: to `MyExampleObject1` class diagram</a>
 
@@ -609,8 +634,8 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 13 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L68' title='string Payee.ClientCustomerId'>68</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L65' title='string Payee.WalletUuid'>65</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L66' title='string Payee.ClientCustomerId'>66</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L63' title='string Payee.WalletUuid'>63</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 
 <a href="#Payee-class-diagram">:link: to `Payee` class diagram</a>
 
@@ -662,7 +687,7 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 13 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L75' title='Address Payer.Address'>75</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L73' title='Address Payer.Address'>73</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
 
 <a href="#Payer-class-diagram">:link: to `Payer` class diagram</a>
 
@@ -708,36 +733,68 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 13 named types.
 <br>
 
 - The `PayinNotification` contains 22 members.
-- 69 total lines of source code.
-- Approximately 88 lines of executable code.
+- 70 total lines of source code.
+- Approximately 90 lines of executable code.
 - The highest cyclomatic complexity is 2 :heavy_check_mark:.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L97' title='double PayinNotification.Amount'>97</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L82' title='string PayinNotification.ClientOrder'>82</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L94' title='string PayinNotification.Currency'>94</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L118' title='CustomFormat PayinNotification.CustomFormat'>118</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L115' title='CustomInfo PayinNotification.CustomInfo'>115</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L112' title='string PayinNotification.Label'>112</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L91' title='List<Message> PayinNotification.Messages'>91</a> | 100 | 2 :heavy_check_mark: | 0 | 5 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L142' title='string PayinNotification.MessageUuid'>142</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L103' title='double PayinNotification.OperationAmount'>103</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L100' title='string PayinNotification.OperationCurrency'>100</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L88' title='DateTime PayinNotification.OperTimestamp'>88</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L85' title='string PayinNotification.OrderReference'>85</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L136' title='Payee PayinNotification.Payee'>136</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L133' title='Payer PayinNotification.Payer'>133</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L139' title='SwiftPaymentDetails PayinNotification.PaymentDetails'>139</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L106' title='string PayinNotification.ProductName'>106</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L109' title='string PayinNotification.SiteAddress'>109</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L124' title='string PayinNotification.Status'>124</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L130' title='SubStatuses PayinNotification.SubStatuses'>130</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L127' title='string PayinNotification.TransactionType'>127</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L145' title='string PayinNotification.Type'>145</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L121' title='object PayinNotification.ValuedAt'>121</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L95' title='decimal PayinNotification.Amount'>95</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L80' title='string PayinNotification.ClientOrder'>80</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L92' title='string PayinNotification.Currency'>92</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L116' title='CustomFormat PayinNotification.CustomFormat'>116</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L113' title='CustomInfo PayinNotification.CustomInfo'>113</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L110' title='string PayinNotification.Label'>110</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L89' title='List<Message> PayinNotification.Messages'>89</a> | 100 | 2 :heavy_check_mark: | 0 | 5 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L141' title='string PayinNotification.MessageUuid'>141</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L101' title='decimal PayinNotification.OperationAmount'>101</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L98' title='string PayinNotification.OperationCurrency'>98</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L86' title='DateTime PayinNotification.OperTimestamp'>86</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L83' title='string PayinNotification.OrderReference'>83</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L135' title='Payee PayinNotification.Payee'>135</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L132' title='Payer PayinNotification.Payer'>132</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L138' title='SwiftPaymentDetails PayinNotification.PaymentDetails'>138</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L104' title='string PayinNotification.ProductName'>104</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L107' title='string PayinNotification.SiteAddress'>107</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L123' title='PayinNotificationStatus PayinNotification.Status'>123</a> | 100 | 2 :heavy_check_mark: | 0 | 6 | 3 / 6 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L129' title='SubStatuses PayinNotification.SubStatuses'>129</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L126' title='string PayinNotification.TransactionType'>126</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L144' title='string PayinNotification.Type'>144</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L119' title='object PayinNotification.ValuedAt'>119</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 
 <a href="#PayinNotification-class-diagram">:link: to `PayinNotification` class diagram</a>
+
+<a href="#myjetwallet-clearjunction-models-payins">:top: back to MyJetWallet.ClearJunction.Models.Payins</a>
+
+</details>
+
+<details>
+<summary>
+  <strong id="payinnotificationstatus">
+    PayinNotificationStatus :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `PayinNotificationStatus` contains 10 members.
+- 13 total lines of source code.
+- Approximately 2 lines of executable code.
+- The highest cyclomatic complexity is 0 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotificationStatus.cs#L11' title='PayinNotificationStatus.Authorized'>11</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotificationStatus.cs#L7' title='PayinNotificationStatus.Canceled'>7</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotificationStatus.cs#L12' title='PayinNotificationStatus.Captured'>12</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotificationStatus.cs#L5' title='PayinNotificationStatus.Created'>5</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotificationStatus.cs#L14' title='PayinNotificationStatus.Declined'>14</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotificationStatus.cs#L6' title='PayinNotificationStatus.Expired'>6</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotificationStatus.cs#L10' title='PayinNotificationStatus.Pending'>10</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotificationStatus.cs#L8' title='PayinNotificationStatus.Rejected'>8</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotificationStatus.cs#L9' title='PayinNotificationStatus.Returned'>9</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotificationStatus.cs#L13' title='PayinNotificationStatus.Settled'>13</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+
+<a href="#PayinNotificationStatus-class-diagram">:link: to `PayinNotificationStatus` class diagram</a>
 
 <a href="#myjetwallet-clearjunction-models-payins">:top: back to MyJetWallet.ClearJunction.Models.Payins</a>
 
@@ -758,8 +815,8 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 13 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L155' title='string SubStatuses.ComplianceStatus'>155</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L152' title='string SubStatuses.OperStatus'>152</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L154' title='string SubStatuses.ComplianceStatus'>154</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/PayinNotification.cs#L151' title='string SubStatuses.OperStatus'>151</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 
 <a href="#SubStatuses-class-diagram">:link: to `SubStatuses` class diagram</a>
 
@@ -1735,6 +1792,20 @@ class CustomDateTimeConverter{
 
 ```
 
+<div id="PayinNotificationStatusConverter-class-diagram"></div>
+
+##### `PayinNotificationStatusConverter` class diagram
+
+```mermaid
+classDiagram
+class PayinNotificationStatusConverter{
+    +List<KeyValuePair<PayinNotificationStatus, string>> Mapping
+    +.ctor() PayinNotificationStatusConverter
+    +.ctor(bool quotes) PayinNotificationStatusConverter
+}
+
+```
+
 <div id="CallResult&lt;T&gt;-class-diagram"></div>
 
 ##### `CallResult<T>` class diagram
@@ -1945,16 +2016,16 @@ class PayinNotification{
     +DateTime OperTimestamp
     +List<Message> Messages
     +string Currency
-    +double Amount
+    +decimal Amount
     +string OperationCurrency
-    +double OperationAmount
+    +decimal OperationAmount
     +string ProductName
     +string SiteAddress
     +string Label
     +CustomInfo CustomInfo
     +CustomFormat CustomFormat
     +object ValuedAt
-    +string Status
+    +PayinNotificationStatus Status
     +string TransactionType
     +SubStatuses SubStatuses
     +Payer Payer
@@ -1962,6 +2033,27 @@ class PayinNotification{
     +SwiftPaymentDetails PaymentDetails
     +string MessageUuid
     +string Type
+}
+
+```
+
+<div id="PayinNotificationStatus-class-diagram"></div>
+
+##### `PayinNotificationStatus` class diagram
+
+```mermaid
+classDiagram
+class PayinNotificationStatus{
+    -Created$
+    -Expired$
+    -Canceled$
+    -Rejected$
+    -Returned$
+    -Pending$
+    -Authorized$
+    -Captured$
+    -Settled$
+    -Declined$
 }
 
 ```
