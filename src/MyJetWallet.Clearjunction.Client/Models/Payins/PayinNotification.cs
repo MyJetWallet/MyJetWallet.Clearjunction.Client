@@ -92,13 +92,13 @@ namespace MyJetWallet.ClearJunction.Models.Payins
         public string Currency { get; set; }
 
         [DataMember(Order = 6), JsonProperty("amount")]
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
 
         [DataMember(Order = 7), JsonProperty("operationCurrency")]
         public string OperationCurrency { get; set; }
 
         [DataMember(Order = 8), JsonProperty("operationAmount")]
-        public double OperationAmount { get; set; }
+        public decimal OperationAmount { get; set; }
 
         [DataMember(Order = 9), JsonProperty("productName")]
         public string ProductName { get; set; }
