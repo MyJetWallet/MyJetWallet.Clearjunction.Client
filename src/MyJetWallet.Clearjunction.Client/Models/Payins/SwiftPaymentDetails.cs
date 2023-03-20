@@ -48,6 +48,9 @@ namespace MyJetWallet.ClearJunction.Models.Payins
 
         [DataMember(Order = 7), JsonProperty("name")]
         public string Name { get; set; }
+        
+        [DataMember(Order = 8), JsonProperty("iban")]
+        public string Iban { get; set; }
     }
 
     [DataContract]
@@ -73,6 +76,9 @@ namespace MyJetWallet.ClearJunction.Models.Payins
 
         [DataMember(Order = 7), JsonProperty("name")]
         public string Name { get; set; }
+        
+        [DataMember(Order = 8), JsonProperty("iban")]
+        public string Iban { get; set; }
     }
 
     [DataContract]
