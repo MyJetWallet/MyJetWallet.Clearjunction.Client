@@ -13,8 +13,8 @@ The *MyJetWallet.Clearjunction.Client.csproj* project file contains:
 
 - 8 namespaces.
 - 52 named types.
-- 1,367 total lines of source code.
-- Approximately 877 lines of executable code.
+- 1,373 total lines of source code.
+- Approximately 885 lines of executable code.
 - The highest cyclomatic complexity is 6 :heavy_check_mark:.
 
 <details>
@@ -469,8 +469,8 @@ The `MyJetWallet.ClearJunction.Models` namespace contains 4 named types.
 The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 14 named types.
 
 - 14 named types.
-- 252 total lines of source code.
-- Approximately 240 lines of executable code.
+- 258 total lines of source code.
+- Approximately 248 lines of executable code.
 - The highest cyclomatic complexity is 2 :heavy_check_mark:.
 
 <details>
@@ -651,9 +651,9 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 14 named types.
 </summary>
 <br>
 
-- The `PayeeRequisite` contains 7 members.
-- 24 total lines of source code.
-- Approximately 28 lines of executable code.
+- The `PayeeRequisite` contains 8 members.
+- 27 total lines of source code.
+- Approximately 32 lines of executable code.
 - The highest cyclomatic complexity is 2 :heavy_check_mark:.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
@@ -663,6 +663,7 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 14 named types.
 | Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L35' title='string PayeeRequisite.BankName'>35</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 | Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L44' title='string PayeeRequisite.BankOneStringAddress'>44</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 | Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L38' title='string PayeeRequisite.BankSwiftCode'>38</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L53' title='string PayeeRequisite.Iban'>53</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 | Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L47' title='IntermediaryInstitution PayeeRequisite.IntermediaryInstitution'>47</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
 | Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L50' title='string PayeeRequisite.Name'>50</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 
@@ -703,20 +704,21 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 14 named types.
 </summary>
 <br>
 
-- The `PayerRequisite` contains 7 members.
-- 24 total lines of source code.
-- Approximately 28 lines of executable code.
+- The `PayerRequisite` contains 8 members.
+- 27 total lines of source code.
+- Approximately 32 lines of executable code.
 - The highest cyclomatic complexity is 2 :heavy_check_mark:.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L57' title='string PayerRequisite.BankAccountNumber'>57</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L66' title='string PayerRequisite.BankCountry'>66</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L60' title='string PayerRequisite.BankName'>60</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L69' title='string PayerRequisite.BankOneStringAddress'>69</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L63' title='string PayerRequisite.BankSwiftCode'>63</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L72' title='IntermediaryInstitution PayerRequisite.IntermediaryInstitution'>72</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L75' title='string PayerRequisite.Name'>75</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L60' title='string PayerRequisite.BankAccountNumber'>60</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L69' title='string PayerRequisite.BankCountry'>69</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L63' title='string PayerRequisite.BankName'>63</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L72' title='string PayerRequisite.BankOneStringAddress'>72</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L66' title='string PayerRequisite.BankSwiftCode'>66</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L81' title='string PayerRequisite.Iban'>81</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L75' title='IntermediaryInstitution PayerRequisite.IntermediaryInstitution'>75</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L78' title='string PayerRequisite.Name'>78</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 
 <a href="#PayerRequisite-class-diagram">:link: to `PayerRequisite` class diagram</a>
 
@@ -839,10 +841,10 @@ The `MyJetWallet.ClearJunction.Models.Payins` namespace contains 14 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L85' title='string SwiftPaymentDetails.Description'>85</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L88' title='PayeeRequisite SwiftPaymentDetails.PayeeRequisite'>88</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L91' title='PayerRequisite SwiftPaymentDetails.PayerRequisite'>91</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L82' title='string SwiftPaymentDetails.PaymentMethod'>82</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L91' title='string SwiftPaymentDetails.Description'>91</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L94' title='PayeeRequisite SwiftPaymentDetails.PayeeRequisite'>94</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L97' title='PayerRequisite SwiftPaymentDetails.PayerRequisite'>97</a> | 100 | 2 :heavy_check_mark: | 0 | 4 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Payins/SwiftPaymentDetails.cs#L88' title='string SwiftPaymentDetails.PaymentMethod'>88</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
 
 <a href="#SwiftPaymentDetails-class-diagram">:link: to `SwiftPaymentDetails` class diagram</a>
 
@@ -1970,6 +1972,7 @@ class PayeeRequisite{
     +string BankOneStringAddress
     +IntermediaryInstitution IntermediaryInstitution
     +string Name
+    +string Iban
 }
 
 ```
@@ -2000,6 +2003,7 @@ class PayerRequisite{
     +string BankOneStringAddress
     +IntermediaryInstitution IntermediaryInstitution
     +string Name
+    +string Iban
 }
 
 ```
