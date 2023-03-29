@@ -10,5 +10,5 @@ public class Amount
     public string CurrencyCode { get; set; }
         
     [DataMember(Order = 2), JsonProperty("availableFunds")]
-    public int  AvailableFunds { get; set; }
+    public decimal  AvailableFunds { get; set; }
 }
