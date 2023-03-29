@@ -11,10 +11,10 @@ This file is dynamically maintained by a bot, *please do not* edit this by hand.
 
 The *MyJetWallet.Clearjunction.Client.csproj* project file contains:
 
-- 8 namespaces.
-- 52 named types.
-- 1,373 total lines of source code.
-- Approximately 885 lines of executable code.
+- 9 namespaces.
+- 56 named types.
+- 1,449 total lines of source code.
+- Approximately 933 lines of executable code.
 - The highest cyclomatic complexity is 6 :heavy_check_mark:.
 
 <details>
@@ -123,8 +123,8 @@ The `MyJetWallet.ClearJunction.Base` namespace contains 1 named types.
 The `MyJetWallet.ClearJunction` namespace contains 4 named types.
 
 - 4 named types.
-- 341 total lines of source code.
-- Approximately 86 lines of executable code.
+- 363 total lines of source code.
+- Approximately 90 lines of executable code.
 - The highest cyclomatic complexity is 6 :heavy_check_mark:.
 
 <details>
@@ -135,9 +135,9 @@ The `MyJetWallet.ClearJunction` namespace contains 4 named types.
 </summary>
 <br>
 
-- The `ClearJunctionClient` contains 27 members.
-- 264 total lines of source code.
-- Approximately 74 lines of executable code.
+- The `ClearJunctionClient` contains 28 members.
+- 283 total lines of source code.
+- Approximately 78 lines of executable code.
 - The highest cyclomatic complexity is 4 :heavy_check_mark:.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
@@ -162,6 +162,7 @@ The `MyJetWallet.ClearJunction` namespace contains 4 named types.
 | Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/ClearJunctionClient.RequestAlocation.cs#L39' title='Task<WebCallResult<IbanInformation>> ClearJunctionClient.GetIbanInfoAsync(string iban, CancellationToken cancellationToken = null)'>39</a> | 82 | 1 :heavy_check_mark: | 0 | 5 | 7 / 2 |
 | Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/ClearJunctionClient.RequestAlocation.cs#L47' title='Task<WebCallResult<CustomerIbanList>> ClearJunctionClient.GetIbanListByClientCustomerIdAsync(string clientCustomerId, CancellationToken cancellationToken = null)'>47</a> | 82 | 1 :heavy_check_mark: | 0 | 5 | 7 / 2 |
 | Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/ClearJunctionClient.Statement.cs#L13' title='Task<WebCallResult<Statement>> ClearJunctionClient.GetStatementAsync(string walletUuid, DateTime from, DateTime to, CancellationToken cancellationToken = null)'>13</a> | 77 | 1 :heavy_check_mark: | 0 | 7 | 13 / 2 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/ClearJunctionClient.Wallet.cs#L13' title='Task<WebCallResult<IbanInformation>> ClearJunctionClient.GetWalletAsync(string wallet, bool returnPaymentMethods, CancellationToken cancellationToken = null)'>13</a> | 74 | 2 :heavy_check_mark: | 0 | 5 | 15 / 4 |
 | Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/ClearJunctionClient.cs#L124' title='Task<WebCallResult<T>> ClearJunctionClient.PostAsync<T>(string url, object data, CancellationToken cancellationToken = null)'>124</a> | 61 | 3 :heavy_check_mark: | 0 | 7 | 28 / 11 |
 | Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/ClearJunctionClient.cs#L23' title='bool ClearJunctionClient.PrintGetApiCalls'>23</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 1 |
 | Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/ClearJunctionClient.cs#L24' title='bool ClearJunctionClient.PrintPostApiCalls'>24</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 1 |
@@ -1559,6 +1560,122 @@ The `MyJetWallet.ClearJunction.Models.Statements` namespace contains 4 named typ
 
 </details>
 
+<details>
+<summary>
+  <strong id="myjetwallet-clearjunction-models-wallet">
+    MyJetWallet.ClearJunction.Models.Wallet :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+The `MyJetWallet.ClearJunction.Models.Wallet` namespace contains 4 named types.
+
+- 4 named types.
+- 54 total lines of source code.
+- Approximately 44 lines of executable code.
+- The highest cyclomatic complexity is 2 :heavy_check_mark:.
+
+<details>
+<summary>
+  <strong id="amount">
+    Amount :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `Amount` contains 2 members.
+- 9 total lines of source code.
+- Approximately 8 lines of executable code.
+- The highest cyclomatic complexity is 2 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Wallet/Amount.cs#L13' title='int Amount.AvailableFunds'>13</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Wallet/Amount.cs#L10' title='string Amount.CurrencyCode'>10</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+
+<a href="#Amount-class-diagram">:link: to `Amount` class diagram</a>
+
+<a href="#myjetwallet-clearjunction-models-wallet">:top: back to MyJetWallet.ClearJunction.Models.Wallet</a>
+
+</details>
+
+<details>
+<summary>
+  <strong id="getwalletrequest">
+    GetWalletRequest :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `GetWalletRequest` contains 1 members.
+- 6 total lines of source code.
+- Approximately 4 lines of executable code.
+- The highest cyclomatic complexity is 2 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Wallet/GetWalletRequest.cs#L10' title='string GetWalletRequest.WalletUuid'>10</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+
+<a href="#GetWalletRequest-class-diagram">:link: to `GetWalletRequest` class diagram</a>
+
+<a href="#myjetwallet-clearjunction-models-wallet">:top: back to MyJetWallet.ClearJunction.Models.Wallet</a>
+
+</details>
+
+<details>
+<summary>
+  <strong id="paymentmethod">
+    PaymentMethod :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `PaymentMethod` contains 4 members.
+- 15 total lines of source code.
+- Approximately 16 lines of executable code.
+- The highest cyclomatic complexity is 2 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Wallet/PaymentMethod.cs#L16' title='string PaymentMethod.AccountNumber'>16</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Wallet/PaymentMethod.cs#L13' title='string PaymentMethod.BankCode'>13</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Wallet/PaymentMethod.cs#L19' title='string PaymentMethod.Name'>19</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Wallet/PaymentMethod.cs#L10' title='string PaymentMethod.Type'>10</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+
+<a href="#PaymentMethod-class-diagram">:link: to `PaymentMethod` class diagram</a>
+
+<a href="#myjetwallet-clearjunction-models-wallet">:top: back to MyJetWallet.ClearJunction.Models.Wallet</a>
+
+</details>
+
+<details>
+<summary>
+  <strong id="wallet">
+    Wallet :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `Wallet` contains 4 members.
+- 15 total lines of source code.
+- Approximately 16 lines of executable code.
+- The highest cyclomatic complexity is 2 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Wallet/Wallet.cs#L21' title='List<Amount> Wallet.Amounts'>21</a> | 100 | 2 :heavy_check_mark: | 0 | 5 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Wallet/Wallet.cs#L12' title='string Wallet.OwnerUuid'>12</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Wallet/Wallet.cs#L18' title='List<PaymentMethod> Wallet.PaymentMethods'>18</a> | 100 | 2 :heavy_check_mark: | 0 | 5 | 2 / 4 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Clearjunction.Client/blob/master/src/MyJetWallet.Clearjunction.Client/Models/Wallet/Wallet.cs#L15' title='string Wallet.WalletUuid'>15</a> | 100 | 2 :heavy_check_mark: | 0 | 3 | 2 / 4 |
+
+<a href="#Wallet-class-diagram">:link: to `Wallet` class diagram</a>
+
+<a href="#myjetwallet-clearjunction-models-wallet">:top: back to MyJetWallet.ClearJunction.Models.Wallet</a>
+
+</details>
+
+</details>
+
 <a href="#myjetwallet-clearjunction-client">:top: back to MyJetWallet.Clearjunction.Client</a>
 
 <div id='testapp'></div>
@@ -1725,6 +1842,7 @@ class ClearJunctionClient{
     +GetIbanInfoAsync(string iban, CancellationToken cancellationToken = null) Task<WebCallResult<IbanInformation>>
     +GetIbanListByClientCustomerIdAsync(string clientCustomerId, CancellationToken cancellationToken = null) Task<WebCallResult<CustomerIbanList>>
     +GetStatementAsync(string walletUuid, DateTime from, DateTime to, CancellationToken cancellationToken = null) Task<WebCallResult<Statement>>
+    +GetWalletAsync(string wallet, bool returnPaymentMethods, CancellationToken cancellationToken = null) Task<WebCallResult<IbanInformation>>
 }
 
 ```
@@ -2482,6 +2600,61 @@ class StatementTransaction{
     +DateTime? ValuedAt
     +decimal Amount
     +decimal FeeAmount
+}
+
+```
+
+<div id="Amount-class-diagram"></div>
+
+##### `Amount` class diagram
+
+```mermaid
+classDiagram
+class Amount{
+    +string CurrencyCode
+    +int AvailableFunds
+}
+
+```
+
+<div id="GetWalletRequest-class-diagram"></div>
+
+##### `GetWalletRequest` class diagram
+
+```mermaid
+classDiagram
+class GetWalletRequest{
+    +string WalletUuid
+}
+
+```
+
+<div id="PaymentMethod-class-diagram"></div>
+
+##### `PaymentMethod` class diagram
+
+```mermaid
+classDiagram
+class PaymentMethod{
+    +string Type
+    +string BankCode
+    +string AccountNumber
+    +string Name
+}
+
+```
+
+<div id="Wallet-class-diagram"></div>
+
+##### `Wallet` class diagram
+
+```mermaid
+classDiagram
+class Wallet{
+    +string OwnerUuid
+    +string WalletUuid
+    +List<PaymentMethod> PaymentMethods
+    +List<Amount> Amounts
 }
 
 ```
