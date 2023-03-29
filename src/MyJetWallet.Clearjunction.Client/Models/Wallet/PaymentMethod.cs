@@ -9,12 +9,12 @@ public class PaymentMethod
     [DataMember(Order = 1), JsonProperty("type")]
     public string Type { get; set; }
         
-    [DataMember(Order = 1), JsonProperty("bankCode")]
+    [DataMember(Order = 2), JsonProperty("bankCode")]
     public string BankCode { get; set; }
         
-    [DataMember(Order = 1), JsonProperty("accountNumber")]
+    [DataMember(Order = 3), JsonProperty("accountNumber")]
     public string AccountNumber { get; set; }
         
-    [DataMember(Order = 1), JsonProperty("name")]
+    [DataMember(Order = 4), JsonProperty("name")]
     public string Name { get; set; }
 }
