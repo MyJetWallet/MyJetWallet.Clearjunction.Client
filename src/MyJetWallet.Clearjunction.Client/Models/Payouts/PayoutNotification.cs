@@ -57,14 +57,20 @@ namespace MyJetWallet.ClearJunction.Models.Payouts
         
         [DataMember(Order = 16), JsonProperty("messageUuid")]
         public string MessageUuid { get; set; }
-
+        
         [DataMember(Order = 17), JsonProperty("transactionType")]
         public string TransactionType { get; set; }
-
+        
         [DataMember(Order = 18), JsonProperty("subStatuses")]
         public SubStatuses SubStatuses { get; set; }
+        
+        [DataMember(Order = 19), JsonProperty("payer")]
+        public Payer Payer { get; set; }
 
-        [DataMember(Order = 19), JsonProperty("type")]
+        [DataMember(Order = 20), JsonProperty("paymentDetails")]
+        public PayoutPaymentDetails PaymentDetails { get; set; }
+
+        [DataMember(Order = 21), JsonProperty("type")]
         public string Type { get; set; }
     }
 }

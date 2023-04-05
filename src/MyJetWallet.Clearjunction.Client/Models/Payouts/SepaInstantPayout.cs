@@ -13,7 +13,7 @@ public class SepaInstantPayout
     public string Currency { get; set; }
 
     [DataMember(Order = 3), JsonProperty("amount")]
-    public double Amount { get; set; }
+    public decimal Amount { get; set; }
 
     [DataMember(Order = 4), JsonProperty("description")]
     public string Description { get; set; }
