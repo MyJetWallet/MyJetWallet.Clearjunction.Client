@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using MyJetWallet.ClearJunction.Converters;
 using Newtonsoft.Json;
 
 namespace MyJetWallet.ClearJunction.Models.Payouts;
@@ -51,7 +52,8 @@ public class PayoutStatus
     public object ValuedAt { get; set; }
 
     [DataMember(Order = 15), JsonProperty("status")]
-    public string Status { get; set; }
+    [JsonConverter(typeof(PayoutNotificationStatusConverter))]
+    public PayoutNotificationStatus Status { get; set; }
 
     [DataMember(Order = 16), JsonProperty("transactionType")]
     public string TransactionType { get; set; }
