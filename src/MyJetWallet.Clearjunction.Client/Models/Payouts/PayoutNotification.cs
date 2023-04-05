@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using MyJetWallet.ClearJunction.Converters;
+using Newtonsoft.Json;
 
-namespace MyJetWallet.ClearJunction.Models.Payins
+namespace MyJetWallet.ClearJunction.Models.Payouts
 {
     [DataContract]
-    public class PayinNotification
+    public class PayoutNotification
     {
         [DataMember(Order = 1), JsonProperty("clientOrder")]
         public string ClientOrder { get; set; }
@@ -52,28 +52,19 @@ namespace MyJetWallet.ClearJunction.Models.Payins
         public object ValuedAt { get; set; }
 
         [DataMember(Order = 15), JsonProperty("status")]
-        [JsonConverter(typeof (PayinNotificationStatusConverter))]
-        public PayinNotificationStatus Status { get; set; }
-
-        [DataMember(Order = 16), JsonProperty("transactionType")]
-        public string TransactionType { get; set; }
-
-        [DataMember(Order = 17), JsonProperty("subStatuses")]
-        public SubStatuses SubStatuses { get; set; }
-
-        [DataMember(Order = 18), JsonProperty("payer")]
-        public Payer Payer { get; set; }
-
-        [DataMember(Order = 19), JsonProperty("payee")]
-        public Payee Payee { get; set; }
-
-        [DataMember(Order = 20), JsonProperty("paymentDetails")]
-        public SwiftPaymentDetails PaymentDetails { get; set; }
-
-        [DataMember(Order = 21), JsonProperty("messageUuid")]
+        [JsonConverter(typeof(PayoutNotificationStatusConverter))]
+        public PayoutNotificationStatus Status { get; set; }
+        
+        [DataMember(Order = 16), JsonProperty("messageUuid")]
         public string MessageUuid { get; set; }
 
-        [DataMember(Order = 22), JsonProperty("type")]
+        [DataMember(Order = 17), JsonProperty("transactionType")]
+        public string TransactionType { get; set; }
+
+        [DataMember(Order = 18), JsonProperty("subStatuses")]
+        public SubStatuses SubStatuses { get; set; }
+
+        [DataMember(Order = 21), JsonProperty("type")]
         public string Type { get; set; }
     }
 }
