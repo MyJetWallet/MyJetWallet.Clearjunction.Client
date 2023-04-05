@@ -64,7 +64,7 @@ namespace MyJetWallet.ClearJunction.Models.Payouts
         [DataMember(Order = 18), JsonProperty("subStatuses")]
         public SubStatuses SubStatuses { get; set; }
 
-        [DataMember(Order = 21), JsonProperty("type")]
+        [DataMember(Order = 19), JsonProperty("type")]
         public string Type { get; set; }
     }
 }
