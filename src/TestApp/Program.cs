@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Threading.Tasks;
 using MyJetWallet.ClearJunction;
+using MyJetWallet.ClearJunction.Models.Payouts;
 using MyJetWallet.ClearJunction.Models.RequisitesAllocation;
 using Newtonsoft.Json;
 
@@ -12,8 +13,23 @@ namespace TestApp
     {
         static async Task Main(string[] args)
         {
-            var client = new ClearJunctionClient("", "", "");
+            var client = new ClearJunctionClient(
+                Environment.GetEnvironmentVariable("ApiKey"), 
+                Environment.GetEnvironmentVariable("ApiPassword"), 
+                Environment.GetEnvironmentVariable("ApiPasswordRootUrl"));
 
+            var checkSepaIban = await client.CheckRequisiteAsync("GBXXCLJU04130780079590");
+            
+            var payout = "{\"clientOrder\":\"17db041984ca4e6ea561500021a3a650\",\"currency\":\"EUR\",\"amount\":100.0,\"description\":\"Test payout 25b7b2f76ff94c24be2bfa3710015adf\",\"postbackUrl\":\"https://webhook-uat.simple-spot.biz/clearjunction/webhook/allocation\"," +
+                         "\"payer\":{\"clientCustomerId\":\"37e49e3565094b67830f6b3f34e3d67f\",\"walletUuid\":\"988382de-18a9-46ec-a25d-41b274fe2bc3\"," +
+                         "\"individual\":{\"phone\":null,\"email\":null,\"birthDate\":null,\"birthPlace\":null,\"address\":{\"country\":\"BG\",\"zip\":\"9000\",\"city\":\"Varna\",\"street\":\"Lyuben Popov \"},\"document\":null,\"lastName\":\"Test\",\"firstName\":\"Yuriy\",\"middleName\":null}}," +
+                         "\"payee\":{\"individual\":{\"lastName\":\"Test\",\"firstName\":\"Yuriy\"}}," +
+                         "\"payeeRequisite\":{\"iban\":\"GBXXCLJU04130780079747\",\"bankSwiftCode\":\"CLJUGB21\",\"bankAccountNumber\":null,\"bankCountry\":null,\"bankOneStringAddress\":null,\"intermediaryInstitution\":null,\"name\":null}," +
+                         "\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":\"CLJUGB21\",\"bankAccountNumber\":null,\"bankCountry\":null,\"bankOneStringAddress\":null,\"intermediaryInstitution\":null,\"name\":null}}";
+            var payoutRequest = JsonConvert.DeserializeObject<SepaInstantPayout>(payout);
+            var createPayout = await client.ExecuteSepaInstantPayoutAsync(payoutRequest);
+
+            
             //var response = await client.GetAsync<string>("v7/gate/allocate/v2/info/iban/GB00CLJU00000011111111");
 
 
@@ -41,7 +57,8 @@ namespace TestApp
             //var response2 = await client.GetStatementAsync("988382de-18a9-46ec-a25d-41b274fe2bc3",
             //    new DateTime(2023, 2, 21),
             //    new DateTime(2023, 2, 23));
-        }
+
+            }
     }
 
     public class RequestX

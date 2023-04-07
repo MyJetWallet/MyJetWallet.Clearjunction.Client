@@ -13,6 +13,15 @@ namespace MyJetWallet.ClearJunction
     {
         #region Payout
 
+        public async Task<WebCallResult<SepaInstantPayoutResponse>> ExecuteSctPayoutAsync(
+            SepaInstantPayout request,
+            CancellationToken cancellationToken = default)
+        {
+            return await PostAsync<SepaInstantPayoutResponse>(
+                $"v7/gate/payout/bankTransfer/eu",
+                request, cancellationToken);
+        }
+        
         public async Task<WebCallResult<SepaInstantPayoutResponse>> ExecuteSepaInstantPayoutAsync(
             SepaInstantPayout request,
             CancellationToken cancellationToken = default)
