@@ -1,16 +1,17 @@
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
 namespace MyJetWallet.ClearJunction.Models;
 
+[DataContract]
 public class ClearJunctionErrorItem
 {
-    [JsonProperty("code")]
+    [DataMember(Order = 1), JsonProperty("code")]
     public int Code { get; set; }
 
-    [JsonProperty("message")]
+    [DataMember(Order = 2),JsonProperty("message")]
     public string Message { get; set; }
 
-    [JsonProperty("details")]
+    [DataMember(Order = 3),JsonProperty("details")]
     public string Details { get; set; }
-
 }
