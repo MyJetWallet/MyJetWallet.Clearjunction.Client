@@ -139,7 +139,7 @@ namespace MyJetWallet.ClearJunction
 
                 var status = (int)response.StatusCode;
                 var content = response?.Content;
-                if (status == 200)
+                if (status == 200 || status == 201)
                     return this.EvaluateResponse<T>(response, content);
                 else
                     return this.EvaluateErrorResponse<T>(response, content);

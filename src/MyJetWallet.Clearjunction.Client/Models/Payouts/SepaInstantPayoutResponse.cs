@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using MyJetWallet.ClearJunction.Converters;
 using Newtonsoft.Json;
 
 namespace MyJetWallet.ClearJunction.Models.Payouts;
@@ -27,8 +28,12 @@ public class SepaInstantPayoutResponse
     public CustomFormat CustomFormat { get; set; }
 
     [DataMember(Order = 7), JsonProperty("status")]
-    public string Status { get; set; }
+    [JsonConverter(typeof(PayoutNotificationStatusConverter))]
+    public PayoutNotificationStatus Status { get; set; }
 
     [DataMember(Order = 8), JsonProperty("subStatuses")]
     public SubStatuses SubStatuses { get; set; }
+    
+    [DataMember(Order = 9), JsonProperty("errors")]
+    public List<ClearJunctionError> Errors { get; set; }
 }

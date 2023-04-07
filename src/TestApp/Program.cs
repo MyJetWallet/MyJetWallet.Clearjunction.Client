@@ -13,6 +13,7 @@ namespace TestApp
     {
         static async Task Main(string[] args)
         {
+            var order = Guid.NewGuid().ToString("N");
             var client = new ClearJunctionClient(
                 Environment.GetEnvironmentVariable("ApiKey"), 
                 Environment.GetEnvironmentVariable("ApiPassword"), 
@@ -20,12 +21,15 @@ namespace TestApp
 
             var checkSepaIban = await client.CheckRequisiteAsync("GBXXCLJU04130780079590");
             
-            var payout = "{\"clientOrder\":\"17db041984ca4e6ea561500021a3a650\",\"currency\":\"EUR\",\"amount\":100.0,\"description\":\"Test payout 25b7b2f76ff94c24be2bfa3710015adf\",\"postbackUrl\":\"https://webhook-uat.simple-spot.biz/clearjunction/webhook/allocation\"," +
-                         "\"payer\":{\"clientCustomerId\":\"37e49e3565094b67830f6b3f34e3d67f\",\"walletUuid\":\"988382de-18a9-46ec-a25d-41b274fe2bc3\"," +
-                         "\"individual\":{\"phone\":null,\"email\":null,\"birthDate\":null,\"birthPlace\":null,\"address\":{\"country\":\"BG\",\"zip\":\"9000\",\"city\":\"Varna\",\"street\":\"Lyuben Popov \"},\"document\":null,\"lastName\":\"Test\",\"firstName\":\"Yuriy\",\"middleName\":null}}," +
+            var payout = "{\"clientOrder\":\""+ order + "\"," +
+                         //"{\"clientOrder\":\"17db041984ca4e6ea561500021a3a650\"," +
+                         "\"currency\":\"EUR\",\"amount\":100.0," +
+                         "\"description\":\"Test payout 25b7b2f76ff94c24be2bfa3710015adf\"," +
+                         "\"postbackUrl\":\"https://webhook-uat.simple-spot.biz/clearjunction/webhook/allocation\"," +
+                         "\"payer\":{\"clientCustomerId\":\"37e49e3565094b67830f6b3f34e3d67f\",\"walletUuid\":\"988382de-18a9-46ec-a25d-41b274fe2bc3\",\"individual\":{\"lastName\":\"Test\",\"firstName\":\"Yuriy\"}}," +
                          "\"payee\":{\"individual\":{\"lastName\":\"Test\",\"firstName\":\"Yuriy\"}}," +
-                         "\"payeeRequisite\":{\"iban\":\"GBXXCLJU04130780079747\",\"bankSwiftCode\":\"CLJUGB21\",\"bankAccountNumber\":null,\"bankCountry\":null,\"bankOneStringAddress\":null,\"intermediaryInstitution\":null,\"name\":null}," +
-                         "\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":\"CLJUGB21\",\"bankAccountNumber\":null,\"bankCountry\":null,\"bankOneStringAddress\":null,\"intermediaryInstitution\":null,\"name\":null}}";
+                         "\"payeeRequisite\":{\"iban\":\"GBXXCLJU04130780079747\",\"bankSwiftCode\":\"CLJUGB21XXX\"}," +
+                         "\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":null}}";
             var payoutRequest = JsonConvert.DeserializeObject<SepaInstantPayout>(payout);
             var createPayout = await client.ExecuteSepaInstantPayoutAsync(payoutRequest);
 
