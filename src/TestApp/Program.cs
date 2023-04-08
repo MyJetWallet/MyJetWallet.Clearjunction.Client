@@ -1,6 +1,5 @@
 using System;
-using System.Runtime.InteropServices;
-using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using MyJetWallet.ClearJunction;
 using MyJetWallet.ClearJunction.Models.Payouts;
@@ -25,14 +24,49 @@ namespace TestApp
                          //"{\"clientOrder\":\"17db041984ca4e6ea561500021a3a650\"," +
                          "\"currency\":\"EUR\",\"amount\":100.0," +
                          "\"description\":\"Test payout 25b7b2f76ff94c24be2bfa3710015adf\"," +
-                         "\"postbackUrl\":\"https://webhook-uat.simple-spot.biz/clearjunction/webhook/allocation\"," +
-                         "\"payer\":{\"clientCustomerId\":\"37e49e3565094b67830f6b3f34e3d67f\",\"walletUuid\":\"988382de-18a9-46ec-a25d-41b274fe2bc3\",\"individual\":{\"lastName\":\"Test\",\"firstName\":\"Yuriy\"}}," +
-                         "\"payee\":{\"individual\":{\"lastName\":\"Test\",\"firstName\":\"Yuriy\"}}," +
-                         "\"payeeRequisite\":{\"iban\":\"GBXXCLJU04130780079747\",\"bankSwiftCode\":\"CLJUGB21XXX\"}," +
+                         "\"postbackUrl\":\"https://webhook-uat.simple-spot.biz/clearjunction/webhook/payout\"," +
+                         "\"payer\":{\"clientCustomerId\":\"37e49e3565094b67830f6b3f34e3d67f\",\"walletUuid\":\"988382de-18a9-46ec-a25d-41b274fe2bc3\",\"individual\":{\"lastName\":\"Pliaskin\",\"firstName\":\"Iurii\"}}," +
+                         "\"payee\":{\"individual\":{\"lastName\":\"Pliaskin\",\"firstName\":\"Iurii\"}}," +
+                         "\"payeeRequisite\":{\"iban\":\"GBXXCLJU04130780084187\",\"bankSwiftCode\":null}," +
                          "\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":null}}";
+                         // "\"payeeRequisite\":{\"iban\":\"LT933250066755815010\",\"bankSwiftCode\":\"REVOLT21\"}," +
+                         // "\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":null}}";
             var payoutRequest = JsonConvert.DeserializeObject<SepaInstantPayout>(payout);
             var createPayout = await client.ExecuteSepaInstantPayoutAsync(payoutRequest);
+            while (true)
+            {
+                var getStatusResponse = await client.GetPayoutStatusByOrderReferenceAsync(createPayout.Data.OrderReference);
+                if (!getStatusResponse.Success)
+                {
+                    Console.WriteLine(getStatusResponse.Error.Errors[0].Message);
+                    break;
+                }
 
+                switch (getStatusResponse.Data.Status)
+                {
+                    case PayoutNotificationStatus.Pending:
+                        Console.WriteLine("Payout is Pending");
+                        break;
+                    case PayoutNotificationStatus.Created:
+                        Console.WriteLine("Payout is in Created");
+                        break;
+                    case PayoutNotificationStatus.Settled:
+                        Console.WriteLine("Payout Settled");
+                        break;
+                    case PayoutNotificationStatus.Canceled:
+                        Console.WriteLine("Payout Canceled");
+                        break;
+                    case PayoutNotificationStatus.Declined:
+                        Console.WriteLine("Payout Declined");
+                        break;
+                }
+                Thread.Sleep(10000);
+                if (getStatusResponse.Data.Status == PayoutNotificationStatus.Settled)
+                {
+                    Console.WriteLine("Payout completed");
+                    break;
+                }
+            }
             
             //var response = await client.GetAsync<string>("v7/gate/allocate/v2/info/iban/GB00CLJU00000011111111");
 

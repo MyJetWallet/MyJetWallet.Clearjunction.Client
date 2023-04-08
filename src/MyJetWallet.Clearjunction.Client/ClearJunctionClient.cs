@@ -2,22 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Reflection.Metadata;
-using System.Security;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using MyJetWallet.ClearJunction.Auth;
 using MyJetWallet.ClearJunction.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
+using Newtonsoft.Json.Schema.Generation;
 using RestSharp;
 
 namespace MyJetWallet.ClearJunction
 {
-
     public partial class ClearJunctionClient : IDisposable, IClearJunctionClient
     {
         public static bool PrintGetApiCalls { get; set; } = false;
@@ -166,12 +162,15 @@ namespace MyJetWallet.ClearJunction
                 ThrowErrorExceptionIfEnabled(HttpStatusCode.NotFound, "Empty Response");
                 return new WebCallResult<T>(response, default, HttpStatusCode.NotFound, new ClearJunctionError()
                 {
-                    Errors = new[] { new ClearJunctionErrorItem()
+                    Errors = new[]
                     {
-                        Code = -1,
-                        Details = "Empty Response",
-                        Message = "Empty Response",
-                    } }
+                        new ClearJunctionErrorItem()
+                        {
+                            Code = -1,
+                            Details = "Empty Response",
+                            Message = "Empty Response",
+                        }
+                    }
                 });
             }
 
@@ -182,19 +181,64 @@ namespace MyJetWallet.ClearJunction
         {
             if (string.IsNullOrEmpty(content))
             {
-                ThrowErrorExceptionIfEnabled(HttpStatusCode.NotFound, "Empty Response");
-                return new WebCallResult<T>(response, default, HttpStatusCode.NotFound, new ClearJunctionError()
+                ThrowErrorExceptionIfEnabled(response.StatusCode, "Empty Response");
+                return new WebCallResult<T>(response, default, response.StatusCode, new ClearJunctionError()
                 {
-                    Errors = new[] { new ClearJunctionErrorItem()
+                    Errors = new[]
                     {
-                        Code = -1,
-                        Details = "Empty Response",
-                        Message = "Empty Response",
-                    } }
+                        new ClearJunctionErrorItem()
+                        {
+                            Code = -1,
+                            Details = "Empty Response",
+                            Message = "Empty Response",
+                        }
+                    }
                 });
             }
 
-            return new WebCallResult<T>(response, default, response.StatusCode, JsonConvert.DeserializeObject<ClearJunctionError>(content));
+            if(!TryParseErrorResponse(content, out ClearJunctionError error))
+            {
+                ThrowErrorExceptionIfEnabled(response.StatusCode, content);
+                return new WebCallResult<T>(response, default, response.StatusCode, new ClearJunctionError()
+                {
+                    Errors = new[]
+                    {
+                        new ClearJunctionErrorItem()
+                        {
+                            Code = -1,
+                            Details = content,
+                            Message = "Cannot parse error response",
+                        }
+                    }
+                });
+            }
+            
+            return new WebCallResult<T>(response, default, response.StatusCode, error);
+        }
+
+        bool TryParseErrorResponse(string content, out ClearJunctionError error)
+        {
+            // Check expected error keywords presence :
+            if (!content.Contains("details") ||
+                !content.Contains("message") ||
+                !content.Contains("code"))
+            {
+                error = null;
+                return false;
+            }
+
+            // Check json schema :
+            var generator = new JSchemaGenerator();
+            var schema = generator.Generate(typeof(ClearJunctionError));
+            var jsonObject = JObject.Parse(content);
+            if (!jsonObject.IsValid(schema))
+            {
+                error = null;
+                return false;
+            }
+
+            error = JsonConvert.DeserializeObject<ClearJunctionError>(content);
+            return true;
         }
 
         private void ThrowErrorExceptionIfEnabled(HttpStatusCode code, string message)
@@ -204,8 +248,6 @@ namespace MyJetWallet.ClearJunction
                 throw new ClearJunctionException(code, message);
             }
         }
-
-        
 
         #endregion
 

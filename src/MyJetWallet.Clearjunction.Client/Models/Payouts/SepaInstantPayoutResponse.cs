@@ -22,7 +22,7 @@ public class SepaInstantPayoutResponse
     public DateTime CreatedAt { get; set; }
 
     [DataMember(Order = 5), JsonProperty("messages")]
-    public List<Message> Messages { get; set; }
+    public Message[] Messages { get; set; }
 
     [DataMember(Order = 6), JsonProperty("customFormat")]
     public CustomFormat CustomFormat { get; set; }
@@ -33,7 +33,4 @@ public class SepaInstantPayoutResponse
 
     [DataMember(Order = 8), JsonProperty("subStatuses")]
     public SubStatuses SubStatuses { get; set; }
-    
-    [DataMember(Order = 9), JsonProperty("errors")]
-    public List<ClearJunctionError> Errors { get; set; }
 }

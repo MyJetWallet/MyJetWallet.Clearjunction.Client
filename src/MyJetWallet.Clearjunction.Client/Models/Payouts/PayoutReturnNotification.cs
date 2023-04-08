@@ -19,7 +19,7 @@ namespace MyJetWallet.ClearJunction.Models.Payouts
         public DateTime OperTimestamp { get; set; }
 
         [DataMember(Order = 4), JsonProperty("messages")]
-        public List<Message> Messages { get; set; }
+        public Message[] Messages { get; set; }
 
         [DataMember(Order = 5), JsonProperty("currency")]
         public string Currency { get; set; }
@@ -42,7 +42,7 @@ namespace MyJetWallet.ClearJunction.Models.Payouts
         [DataMember(Order = 11), JsonProperty("label")]
         public string Label { get; set; }
 
-        [DataMember(Order = 12), JsonProperty("customInfo")]
+        [DataMember(Order = 12), JsonProperty("customInfo", NullValueHandling = NullValueHandling.Ignore)]
         public CustomInfo CustomInfo { get; set; }
 
         [DataMember(Order = 13), JsonProperty("customFormat")]
