@@ -25,10 +25,12 @@ namespace TestApp
                          "\"currency\":\"EUR\",\"amount\":100.0," +
                          "\"description\":\"Test payout 25b7b2f76ff94c24be2bfa3710015adf\"," +
                          "\"postbackUrl\":\"https://webhook-uat.simple-spot.biz/clearjunction/webhook/payout\"," +
-                         "\"payer\":{\"clientCustomerId\":\"37e49e3565094b67830f6b3f34e3d67f\",\"walletUuid\":\"988382de-18a9-46ec-a25d-41b274fe2bc3\",\"individual\":{\"lastName\":\"Pliaskin\",\"firstName\":\"Iurii\"}}," +
+                         "\"payer\":{\"clientCustomerId\":\"37e49e3565094b67830f6b3f34e3d67f\"," +
+                         "\"walletUuid\":\"988382de-18a9-46ec-a25d-41b274fe2bc3\"," +
+                         "\"individual\":{\"lastName\":\"Pliaskin\",\"firstName\":\"Iurii\"}}," +
                          "\"payee\":{\"individual\":{\"lastName\":\"Pliaskin\",\"firstName\":\"Iurii\"}}," +
-                         "\"payeeRequisite\":{\"iban\":\"GBXXCLJU04130780084187\",\"bankSwiftCode\":null}," +
-                         "\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":null}}";
+                         "\"payeeRequisite\":{\"iban\":\"GBXXCLJU04130780084187\",\"bankSwiftCode\":null, }," +
+                         "\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":null, \"name\":\"Simple Europe UAB\"}}";
                          // "\"payeeRequisite\":{\"iban\":\"LT933250066755815010\",\"bankSwiftCode\":\"REVOLT21\"}," +
                          // "\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":null}}";
             var payoutRequest = JsonConvert.DeserializeObject<SepaInstantPayout>(payout);
@@ -45,10 +47,10 @@ namespace TestApp
                 switch (getStatusResponse.Data.Status)
                 {
                     case PayoutNotificationStatus.Pending:
-                        Console.WriteLine("Payout is Pending");
+                        Console.WriteLine("Payout Pending");
                         break;
                     case PayoutNotificationStatus.Created:
-                        Console.WriteLine("Payout is in Created");
+                        Console.WriteLine("Payout Created");
                         break;
                     case PayoutNotificationStatus.Settled:
                         Console.WriteLine("Payout Settled");
