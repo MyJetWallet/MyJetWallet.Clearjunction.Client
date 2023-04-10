@@ -72,5 +72,20 @@ namespace MyJetWallet.ClearJunction.Models.Payouts
 
         [DataMember(Order = 21), JsonProperty("type")]
         public string Type { get; set; }
+        
+        [DataMember(Order = 22),JsonProperty("description")]
+        public string Description { get; set; }
+
+        [DataMember(Order = 23),JsonProperty("postbackUrl")]
+        public string PostbackUrl { get; set; }
+
+        [DataMember(Order = 24),JsonProperty("payee")]
+        public Payee Payee { get; set; }
+
+        [DataMember(Order = 25),JsonProperty("payeeRequisite")]
+        public PayeeRequisite PayeeRequisite { get; set; }
+
+        [DataMember(Order = 26),JsonProperty("payerRequisite")]
+        public PayerRequisite PayerRequisite { get; set; }
     }
 }
