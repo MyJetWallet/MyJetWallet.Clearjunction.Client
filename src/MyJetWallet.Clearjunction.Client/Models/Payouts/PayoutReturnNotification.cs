@@ -52,7 +52,7 @@ namespace MyJetWallet.ClearJunction.Models.Payouts
         public object ValuedAt { get; set; }
 
         [DataMember(Order = 14), JsonProperty("relatedOrderReference")]
-        public object RelatedOrderReference { get; set; }
+        public string RelatedOrderReference { get; set; }
         
         [DataMember(Order = 15), JsonProperty("status")]
         [JsonConverter(typeof(PayoutReturnNotificationStatusConverter))]
