@@ -55,7 +55,7 @@ namespace MyJetWallet.ClearJunction.Models.Payouts
         public object RelatedOrderReference { get; set; }
         
         [DataMember(Order = 15), JsonProperty("status")]
-        [JsonConverter(typeof(PayoutNotificationStatusConverter))]
+        [JsonConverter(typeof(PayoutReturnNotificationStatusConverter))]
         public PayoutReturnNotificationStatus Status { get; set; }
         
         [DataMember(Order = 16), JsonProperty("messageUuid")]
@@ -67,13 +67,7 @@ namespace MyJetWallet.ClearJunction.Models.Payouts
         [DataMember(Order = 18), JsonProperty("subStatuses")]
         public ReturnSubStatuses ReturnSubStatuses { get; set; }
 
-        [DataMember(Order = 19), JsonProperty("payer")]
-        public Payer Payer { get; set; }
-
-        [DataMember(Order = 20), JsonProperty("paymentDetails")]
-        public PayoutPaymentDetails PaymentDetails { get; set; }
-
-        [DataMember(Order = 21), JsonProperty("type")]
+        [DataMember(Order = 19), JsonProperty("type")]
         public string Type { get; set; }
     }
 }
