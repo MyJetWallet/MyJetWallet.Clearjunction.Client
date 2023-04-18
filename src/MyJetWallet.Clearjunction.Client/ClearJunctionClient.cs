@@ -135,6 +135,12 @@ namespace MyJetWallet.ClearJunction
 
                 var status = (int)response.StatusCode;
                 var content = response?.Content;
+                
+                if (PrintPostApiCalls)
+                {
+                    Console.WriteLine($"POST: {url}\nBody: {data}\nResp: {content}");
+                }
+                
                 if (status == 200 || status == 201)
                     return this.EvaluateResponse<T>(response, content);
                 else
