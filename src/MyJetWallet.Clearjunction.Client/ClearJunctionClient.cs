@@ -138,6 +138,7 @@ namespace MyJetWallet.ClearJunction
                 
                 if (PrintPostApiCalls)
                 {
+                    var body = JsonConvert.SerializeObject(data ?? new object());
                     Console.WriteLine($"POST: {url}\nBody: {data}\nResp: {content}");
                 }
                 
