@@ -17,9 +17,19 @@ namespace TestApp
                 Environment.GetEnvironmentVariable("ApiKey"), 
                 Environment.GetEnvironmentVariable("ApiPassword"), 
                 Environment.GetEnvironmentVariable("ApiPasswordRootUrl"));
-
-            var checkSepaIban = await client.CheckRequisiteAsync("GBXXCLJU04130780079590");
             
+            var checkSepaIban = await client.CheckRequisiteAsync("LV97HABA0012345678910");
+            //var checkSepaIban = await client.CheckRequisiteAsync("GBXXCLJU04130780084180");
+            //var checkSepaIban = await client.CheckRequisiteAsync("GBXXCLJU04130780079590");
+            var approvePayout = await client.ApprovePayoutAsync(
+                new OrderReferences
+                {
+                    Orders = new string[]
+                    {
+                        "98f5acb4-5aba-4a67-831f-0822c11e2752",
+                    }
+                });
+
             var payout = "{\"clientOrder\":\""+ order + "\"," +
                          //"{\"clientOrder\":\"17db041984ca4e6ea561500021a3a650\"," +
                          "\"currency\":\"EUR\",\"amount\":100.0," +

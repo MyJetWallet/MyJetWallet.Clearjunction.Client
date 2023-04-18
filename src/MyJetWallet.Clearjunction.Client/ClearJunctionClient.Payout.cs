@@ -46,6 +46,27 @@ namespace MyJetWallet.ClearJunction
                 $"v7/gate/status/payout/clientOrder/{clientOrder}",
                 cancellationToken);
         }
+        
+        public async Task<WebCallResult<ApprovePayoutResponse>> ApprovePayoutAsync(
+            OrderReferences request,
+            CancellationToken cancellationToken = default)
+        {
+            return await PostAsync<ApprovePayoutResponse>(
+                $"v7/gate/transactionAction/approve",
+                request, cancellationToken);
+        }
+        
+        
+        public async Task<WebCallResult<ApprovePayoutResponse>> CancellPayoutAsync(
+            OrderReferences request,
+            CancellationToken cancellationToken = default)
+        {
+            return await PostAsync<ApprovePayoutResponse>(
+                $"v7/gate/transactionAction/cancel",
+                request, cancellationToken);
+        }
+        
+        
         #endregion
     }
 }
