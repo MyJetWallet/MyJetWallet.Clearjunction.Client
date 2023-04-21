@@ -173,7 +173,7 @@ namespace MyJetWallet.ClearJunction
                     {
                         new ClearJunctionErrorItem()
                         {
-                            Code = -1,
+                            Code = "-1",
                             Details = "Empty Response",
                             Message = "Empty Response",
                         }
@@ -195,7 +195,7 @@ namespace MyJetWallet.ClearJunction
                     {
                         new ClearJunctionErrorItem()
                         {
-                            Code = -1,
+                            Code = "-1",
                             Details = "Empty Response",
                             Message = "Empty Response",
                         }
@@ -212,7 +212,7 @@ namespace MyJetWallet.ClearJunction
                     {
                         new ClearJunctionErrorItem()
                         {
-                            Code = -1,
+                            Code = "-1",
                             Details = content,
                             Message = "Cannot parse error response",
                         }

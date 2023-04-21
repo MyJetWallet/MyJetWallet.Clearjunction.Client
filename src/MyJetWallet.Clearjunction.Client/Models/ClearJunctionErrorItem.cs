@@ -7,7 +7,7 @@ namespace MyJetWallet.ClearJunction.Models;
 public class ClearJunctionErrorItem
 {
     [DataMember(Order = 1), JsonProperty("code")]
-    public int Code { get; set; }
+    public string Code { get; set; }
 
     [DataMember(Order = 2),JsonProperty("message")]
     public string Message { get; set; }

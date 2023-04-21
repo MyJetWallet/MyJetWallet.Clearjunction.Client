@@ -18,36 +18,30 @@ namespace TestApp
                 Environment.GetEnvironmentVariable("ApiPassword"), 
                 Environment.GetEnvironmentVariable("ApiPasswordRootUrl"));
             
-            var checkSepaIban = await client.CheckRequisiteAsync("LV97HABA0012345678910");
+            //var checkSepaIban = await client.CheckRequisiteAsync("LV97HABA0012345678910");
             //var checkSepaIban = await client.CheckRequisiteAsync("GBXXCLJU04130780084180");
             //var checkSepaIban = await client.CheckRequisiteAsync("GBXXCLJU04130780079590");
-            var approvePayout = await client.ApprovePayoutAsync(
-                new OrderReferences
-                {
-                    Orders = new string[]
-                    {
-                        "98f5acb4-5aba-4a67-831f-0822c11e2752",
-                    }
-                });
 
-            var payout = "{\"clientOrder\":\""+ order + "\"," +
-                         //"{\"clientOrder\":\"17db041984ca4e6ea561500021a3a650\"," +
-                         "\"currency\":\"EUR\",\"amount\":100.0," +
-                         "\"description\":\"Test payout 25b7b2f76ff94c24be2bfa3710015adf\"," +
-                         "\"postbackUrl\":\"https://webhook-uat.simple-spot.biz/clearjunction/webhook/payout\"," +
-                         "\"payer\":{\"clientCustomerId\":\"37e49e3565094b67830f6b3f34e3d67f\"," +
-                         "\"walletUuid\":\"988382de-18a9-46ec-a25d-41b274fe2bc3\"," +
-                         "\"individual\":{\"lastName\":\"Pliaskin\",\"firstName\":\"Iurii\"}}," +
-                         "\"payee\":{\"individual\":{\"lastName\":\"Pliaskin\",\"firstName\":\"Iurii\"}}," +
-                         "\"payeeRequisite\":{\"iban\":\"GBXXCLJU04130780084187\",\"bankSwiftCode\":null, }," +
-                         "\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":null, \"name\":\"Simple Europe UAB\"}}";
-                         // "\"payeeRequisite\":{\"iban\":\"LT933250066755815010\",\"bankSwiftCode\":\"REVOLT21\"}," +
-                         // "\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":null}}";
+
+            // var payout = "{\"clientOrder\":\""+ order + "\"," +
+            //              //"{\"clientOrder\":\"17db041984ca4e6ea561500021a3a650\"," +
+            //              "\"currency\":\"EUR\",\"amount\":100.0," +
+            //              "\"description\":\"Test payout 25b7b2f76ff94c24be2bfa3710015adf\"," +
+            //              "\"postbackUrl\":\"https://webhook-uat.simple-spot.biz/clearjunction/webhook/payout\"," +
+            //              "\"payer\":{\"clientCustomerId\":\"37e49e3565094b67830f6b3f34e3d67f\"," +
+            //              "\"walletUuid\":\"988382de-18a9-46ec-a25d-41b274fe2bc3\"," +
+            //              "\"individual\":{\"lastName\":\"Pliaskin\",\"firstName\":\"Iurii\"}}," +
+            //              "\"payee\":{\"individual\":{\"lastName\":\"Pliaskin\",\"firstName\":\"Iurii\"}}," +
+            //              //"\"payeeRequisite\":{\"iban\":\"GBXXCLJU04130780084187\",\"bankSwiftCode\":null, }," +
+            //              //"\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":null, \"name\":\"Simple Europe UAB\"}}";
+            //               "\"payeeRequisite\":{\"iban\":\"LT933250066755815010\",\"bankSwiftCode\":\"REVOLT21\"}," +
+            //               "\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":null}}";
+            var payout = "{\"clientOrder\":\"7592b622-0ae4-41c1-9d46-22811b92d06c1|:|SP-545ab471bed549e68eb84a2850f6939c\",\"currency\":\"EUR\",\"amount\":100.0,\"description\":\"Sent from Simple.App\",\"postbackUrl\":\"https://webhook-uat.simple-spot.biz/clearjunction/webhook/payout\",\"payer\":{\"clientCustomerId\":\"8a3d35230b15403faeec4e4a671f9c67\",\"walletUuid\":\"988382de-18a9-46ec-a25d-41b274fe2bc3\",\"individual\":{\"lastName\":\"Krasnianska\",\"firstName\":\"Alina\"}},\"payee\":{\"individual\":{\"lastName\":\"Krasnianska\",\"firstName\":\"Alina\"}},\"payeeRequisite\":{\"iban\":\"GBXXCLJU04130780084187\",\"bankSwiftCode\":\"CLJUGB21XXX\",\"name\":\"Clear Junction Limited\"},\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780085122\",\"bankSwiftCode\":\"CLJUGB21XXX\",\"name\":\"Simple Europe UAB\"}}";
             var payoutRequest = JsonConvert.DeserializeObject<SepaInstantPayout>(payout);
             var createPayout = await client.ExecuteSepaInstantPayoutAsync(payoutRequest);
-            while (true)
+            while (true && createPayout.Success)
             {
-                var getStatusResponse = await client.GetPayoutStatusByOrderReferenceAsync(createPayout.Data.OrderReference);
+                var getStatusResponse = await client.GetPayoutStatusByOrderReferenceAsync(createPayout?.Data?.OrderReference);
                 if (!getStatusResponse.Success)
                 {
                     Console.WriteLine(getStatusResponse.Error.Errors[0].Message);
@@ -60,6 +54,14 @@ namespace TestApp
                         Console.WriteLine("Payout Pending");
                         break;
                     case PayoutNotificationStatus.Created:
+                        var approvePayout = await client.ApprovePayoutAsync(
+                            new OrderReferences
+                            {
+                                Orders = new string[]
+                                {
+                                    createPayout.Data.RequestReference,
+                                }
+                            });
                         Console.WriteLine("Payout Created");
                         break;
                     case PayoutNotificationStatus.Settled:
@@ -72,12 +74,12 @@ namespace TestApp
                         Console.WriteLine("Payout Declined");
                         break;
                 }
-                Thread.Sleep(10000);
                 if (getStatusResponse.Data.Status == PayoutNotificationStatus.Settled)
                 {
                     Console.WriteLine("Payout completed");
                     break;
                 }
+                Thread.Sleep(10000);
             }
             
             //var response = await client.GetAsync<string>("v7/gate/allocate/v2/info/iban/GB00CLJU00000011111111");
