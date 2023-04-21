@@ -18,6 +18,19 @@ namespace TestApp
                 Environment.GetEnvironmentVariable("ApiPassword"), 
                 Environment.GetEnvironmentVariable("ApiPasswordRootUrl"));
             
+            var approvePayouts = await client.ApprovePayoutAsync(
+                new OrderReferences
+                {
+                    Orders = new string[]
+                    {
+                        "98fbff91-25ac-4797-bd8c-b8d58b624fcd",
+                        "98fbff95-63f9-4d3e-a9b1-88a3762873f8",
+                        "98fbff96-3e25-44f6-86fa-2e5ee7338c8b",
+                        "98fbff97-3843-4ade-a766-6a21404b1f47",
+                        "98fbff98-bddb-4d2b-a2a1-83de4478b2a9",
+                    }
+                });
+            
             //var checkSepaIban = await client.CheckRequisiteAsync("LV97HABA0012345678910");
             //var checkSepaIban = await client.CheckRequisiteAsync("GBXXCLJU04130780084180");
             //var checkSepaIban = await client.CheckRequisiteAsync("GBXXCLJU04130780079590");
@@ -36,7 +49,7 @@ namespace TestApp
             //              //"\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":null, \"name\":\"Simple Europe UAB\"}}";
             //               "\"payeeRequisite\":{\"iban\":\"LT933250066755815010\",\"bankSwiftCode\":\"REVOLT21\"}," +
             //               "\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780079590\",\"bankSwiftCode\":null}}";
-            var payout = "{\"clientOrder\":\"7592b622-0ae4-41c1-9d46-22811b92d06c1|:|SP-545ab471bed549e68eb84a2850f6939c\",\"currency\":\"EUR\",\"amount\":100.0,\"description\":\"Sent from Simple.App\",\"postbackUrl\":\"https://webhook-uat.simple-spot.biz/clearjunction/webhook/payout\",\"payer\":{\"clientCustomerId\":\"8a3d35230b15403faeec4e4a671f9c67\",\"walletUuid\":\"988382de-18a9-46ec-a25d-41b274fe2bc3\",\"individual\":{\"lastName\":\"Krasnianska\",\"firstName\":\"Alina\"}},\"payee\":{\"individual\":{\"lastName\":\"Krasnianska\",\"firstName\":\"Alina\"}},\"payeeRequisite\":{\"iban\":\"GBXXCLJU04130780084187\",\"bankSwiftCode\":\"CLJUGB21XXX\",\"name\":\"Clear Junction Limited\"},\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780085122\",\"bankSwiftCode\":\"CLJUGB21XXX\",\"name\":\"Simple Europe UAB\"}}";
+            var payout = "{\"clientOrder\":\"f99a29b6-6426-4a92-81ef-05f53229c1eb:\",\"currency\":\"EUR\",\"amount\":100.0,\"description\":\"Sent from Simple.App\",\"postbackUrl\":\"https://webhook-uat.simple-spot.biz/clearjunction/webhook/payout\",\"payer\":{\"clientCustomerId\":\"8a3d35230b15403faeec4e4a671f9c67\",\"walletUuid\":\"988382de-18a9-46ec-a25d-41b274fe2bc3\",\"individual\":{\"lastName\":\"Krasnianska\",\"firstName\":\"Alina\"}},\"payee\":{\"individual\":{\"lastName\":\"Krasnianska\",\"firstName\":\"Alina\"}},\"payeeRequisite\":{\"iban\":\"GBXXCLJU04130780084187\",\"bankSwiftCode\":\"CLJUGB21XXX\",\"name\":\"Clear Junction Limited\"},\"payerRequisite\":{\"iban\":\"GBXXCLJU04130780085122\",\"bankSwiftCode\":\"CLJUGB21XXX\",\"name\":\"Simple Europe UAB\"}}";
             var payoutRequest = JsonConvert.DeserializeObject<SepaInstantPayout>(payout);
             var createPayout = await client.ExecuteSepaInstantPayoutAsync(payoutRequest);
             while (true && createPayout.Success)
