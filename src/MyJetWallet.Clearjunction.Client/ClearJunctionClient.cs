@@ -9,7 +9,6 @@ using MyJetWallet.ClearJunction.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
-using Newtonsoft.Json.Schema.Generation;
 using RestSharp;
 
 namespace MyJetWallet.ClearJunction
@@ -234,18 +233,17 @@ namespace MyJetWallet.ClearJunction
                 return false;
             }
 
-            // Check json schema :
-            var generator = new JSchemaGenerator();
-            var schema = generator.Generate(typeof(ClearJunctionError));
-            var jsonObject = JObject.Parse(content);
-            if (!jsonObject.IsValid(schema))
+            try
+            {
+                error = JsonConvert.DeserializeObject<ClearJunctionError>(content);
+                error.Errors ??= Array.Empty<ClearJunctionErrorItem>();
+                return true;
+            }
+            catch (Exception)
             {
                 error = null;
                 return false;
             }
-
-            error = JsonConvert.DeserializeObject<ClearJunctionError>(content);
-            return true;
         }
 
         private void ThrowErrorExceptionIfEnabled(HttpStatusCode code, string message)
