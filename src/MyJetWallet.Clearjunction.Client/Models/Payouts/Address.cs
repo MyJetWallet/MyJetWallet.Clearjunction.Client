@@ -17,4 +17,7 @@ public class Address
 
     [DataMember(Order = 4), JsonProperty("street")]
     public string Street { get; set; }
+    
+    [DataMember(Order = 5), JsonProperty("state", NullValueHandling = NullValueHandling.Ignore)]
+    public string State { get; set; }
 }

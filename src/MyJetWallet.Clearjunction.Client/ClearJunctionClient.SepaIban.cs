@@ -7,7 +7,7 @@ namespace MyJetWallet.ClearJunction
 {
     public partial class ClearJunctionClient
     {
-        #region SepaPayout
+        #region Requisite
 
         public async Task<WebCallResult<SepaIban>> CheckRequisiteAsync(string iban,
             CancellationToken cancellationToken = default)
