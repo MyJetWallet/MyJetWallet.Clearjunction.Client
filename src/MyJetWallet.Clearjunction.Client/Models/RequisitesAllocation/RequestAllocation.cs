@@ -49,11 +49,11 @@ namespace MyJetWallet.ClearJunction.Models.RequisitesAllocation
         [DataMember(Order = 4), JsonProperty("issuedBy")]
         public string IssuedBy { get; set; }
 
-        [DataMember(Order = 5), JsonProperty("issuedDate"), JsonConverter(typeof(CustomDateTimeConverter))]
-        public DateTime IssuedDate { get; set; }
+        [DataMember(Order = 5), JsonProperty("issuedDate", NullValueHandling = NullValueHandling.Ignore), JsonConverter(typeof(CustomDateTimeConverter))]
+        public DateTime? IssuedDate { get; set; }
 
-        [DataMember(Order = 6), JsonProperty("expirationDate"), JsonConverter(typeof(CustomDateTimeConverter))]
-        public DateTime ExpirationDate { get; set; }
+        [DataMember(Order = 6), JsonProperty("expirationDate", NullValueHandling = NullValueHandling.Ignore), JsonConverter(typeof(CustomDateTimeConverter))]
+        public DateTime? ExpirationDate { get; set; }
     }
 
     [DataContract]

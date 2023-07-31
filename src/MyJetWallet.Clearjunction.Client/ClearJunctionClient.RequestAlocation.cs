@@ -15,7 +15,7 @@ namespace MyJetWallet.ClearJunction
             CancellationToken cancellationToken = default)
         {
             return await PostAsync<RequestAllocationResponse>(
-                $"v7/gate/allocate/v3/create/iban",
+                $"v7/gate/allocate/v2/create/iban",
                 requestAllocation,
                 cancellationToken);
         }
