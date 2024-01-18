@@ -123,7 +123,7 @@ static class Program
 
         ClearJunctionClient.PrintPostApiCalls = true;
 
-        var response2 = await client.GetReportsAsync("986d0565-3591-4467-b902-b57118a72898",
+        var response2 = await client.GetReportsAsync("",
             new DateTime(2024, 1, 12),
             new DateTime(2024, 1, 18));
 
