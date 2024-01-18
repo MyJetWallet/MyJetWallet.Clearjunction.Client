@@ -16,8 +16,8 @@ namespace MyJetWallet.ClearJunction
         {
             return await PostAsync<Report>($"v7/gate/reports/transactionReport", new GetReportRequest()
             {
-                DateFrom = from.ToString("yyyy-MM-dd"),
-                DateTo = to.ToString("yyyy-MM-dd"),
+                DateFrom = from.ToString("o"),
+                DateTo = to.ToString("o"),
                 WalletUuid = walletUuid
             },
                 cancellationToken);
