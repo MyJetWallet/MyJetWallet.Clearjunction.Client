@@ -3,13 +3,13 @@ namespace MyJetWallet.ClearJunction.Models.Reports.Values;
 public enum OperStatus
 {
     Created,
-    Expired,
-    Canceled,
-    Rejected,
-    Returned,
     Pending,
     Authorized,
+    Expired,
+    Rejected,
+    Returned,
+    Canceled,
+    Declined,
     Captured,
     Settled,
-    Declined
 }
