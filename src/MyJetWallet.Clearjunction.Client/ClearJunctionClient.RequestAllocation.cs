@@ -9,8 +9,18 @@ namespace MyJetWallet.ClearJunction
 {
     public partial class ClearJunctionClient
     {
-        #region RequestAlocations
+        #region RequestAllocations
 
+        public async Task<WebCallResult<RequestAllocationResponse>> CreateIbanV3Async(RequestAllocation requestAllocation,
+            CancellationToken cancellationToken = default)
+        {
+            return await PostAsync<RequestAllocationResponse>(
+                $"v7/gate/allocate/v3/create/iban",
+                requestAllocation,
+                cancellationToken);
+        }
+        
+        [Obsolete("Use CreateIbanV3Async instead")]
         public async Task<WebCallResult<RequestAllocationResponse>> CreateIbanAsync(RequestAllocation requestAllocation,
             CancellationToken cancellationToken = default)
         {
